@@ -1,0 +1,11 @@
+coenraads.bracket-pair-colorizer
+ms-vscode.cpptools
+llvm-vs-code-extensions.vscode-clangd
+twxs.cmake
+arcticicestudio.nord-visual-studio-code
+ms-python.python (diable autocompelte)
+natqe.reload
+vscode-icons-team.vscode-icons
+kiteco.kite (https://www.kite.com/linux/)
+almenon.arepl
+njpwerner.autodocstring

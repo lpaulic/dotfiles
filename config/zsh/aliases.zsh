@@ -1,0 +1,5 @@
+alias ll="ls -AlGh --color=always"
+alias make="make --no-print-directory"
+alias valgrind-leak="valgrind --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --read-var-info=yes --child-silent-after-fork=yes"
+alias dotgit="git -C ${DOTREPO}"
+alias dotsync="dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install"

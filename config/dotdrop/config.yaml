@@ -1,0 +1,89 @@
+config:
+  backup: true
+  banner: false
+  create: true
+  dotpath: /opt/github/dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_config.yaml:
+    src: config/dotdrop/config.yaml
+    dst: ~/.config/dotdrop/config.yaml
+  f_settings.json:
+    src: config/Code/User/settings.json
+    dst: ~/.config/Code/User/settings.json
+  f_keyboard-shortcuts.pdf:
+    src: config/Code/User/keyboard-shortcuts.pdf
+    dst: ~/.config/Code/User/keyboard-shortcuts.pdf
+  f_extension-list.txt:
+    src: config/Code/User/extension-list.txt
+    dst: ~/.config/Code/User/extension-list.txt
+  f_dunstrc:
+    src: config/dunst/dunstrc
+    dst: ~/.config/dunst/dunstrc
+  f_flameshot.ini:
+    src: config/flameshot/flameshot.ini
+    dst: ~/.config/flameshot/flameshot.ini
+  f_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+  f_config:
+    src: config/i3/config
+    dst: ~/.config/i3/config
+  f_i3status_config:
+    src: config/i3status/config
+    dst: ~/.config/i3status/config
+  f_kitty.conf:
+    src: config/kitty/kitty.conf
+    dst: ~/.config/kitty/kitty.conf
+  f_nord.conf:
+    src: config/kitty/nord.conf
+    dst: ~/.config/kitty/nord.conf
+  d_pictures:
+    src: config/pictures
+    dst: ~/.config/pictures
+  f_aliases.zsh:
+    src: config/zsh/aliases.zsh
+    dst: ~/.config/zsh/aliases.zsh
+  f_completion.zsh:
+    src: config/zsh/completion.zsh
+    dst: ~/.config/zsh/completion.zsh
+  f_environment.zsh:
+    src: config/zsh/environment.zsh
+    dst: ~/.config/zsh/environment.zsh
+  f_options.zsh:
+    src: config/zsh/options.zsh
+    dst: ~/.config/zsh/options.zsh
+  f_private.zsh:
+    src: config/zsh/private.zsh
+    dst: ~/.config/zsh/private.zsh
+  f_prompt.zsh:
+    src: config/zsh/prompt.zsh
+    dst: ~/.config/zsh/prompt.zsh
+  f_vimrc:
+    src: config/vim/vimrc
+    dst: ~/.vimrc
+profiles:
+  T570:
+    dotfiles:
+    - f_config.yaml
+    - f_settings.json
+    - f_keyboard-shortcuts.pdf
+    - f_extension-list.txt
+    - f_dunstrc
+    - f_flameshot.ini
+    - f_settings.ini
+    - f_config
+    - f_i3status_config
+    - f_kitty.conf
+    - f_nord.conf
+    - d_pictures
+    - f_aliases.zsh
+    - f_completion.zsh
+    - f_environment.zsh
+    - f_options.zsh
+    - f_private.zsh
+    - f_prompt.zsh
+    - f_vimrc

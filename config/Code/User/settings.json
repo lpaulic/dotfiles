@@ -1,0 +1,46 @@
+{
+    "terminal.integrated.rendererType": "dom",
+    "editor.rulers": [],
+    "breadcrumbs.enabled": true,
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.activityBar.visible": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.tabSizing": "shrink",
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Hack",
+    "editor.minimap.enabled": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.formatOnSave": true,
+    "editor.trimAutoWhitespace": true,
+    "json.format.enable": false,
+    "editor.renderIndentGuides": false,
+    "editor.quickSuggestions": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "scm.diffDecorations": "all",
+    "git.confirmSync": false,
+    "terminal.external.linuxExec": "alacritty",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "clangd.arguments": [
+        "-background-index",
+        "-compile-commands-dir=build/"
+    ],
+    "editor.minimap.maxColumn": 80,
+    "files.trimTrailingWhitespace": true,
+    "[c]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "clangd.semanticHighlighting": false,
+    "python.languageServer": "Jedi",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
+    "python.linting.lintOnSave": false,
+    "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"]
+}
