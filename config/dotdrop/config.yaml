@@ -8,9 +8,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_config.yaml:
-    src: config/dotdrop/config.yaml
-    dst: ~/.config/dotdrop/config.yaml
   f_settings.json:
     src: config/Code/User/settings.json
     dst: ~/.config/Code/User/settings.json
@@ -68,7 +65,6 @@ dotfiles:
 profiles:
   T570:
     dotfiles:
-    - f_config.yaml
     - f_settings.json
     - f_keyboard-shortcuts.pdf
     - f_extension-list.txt
