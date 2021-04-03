@@ -42,5 +42,7 @@
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": false,
     "python.linting.lintOnSave": false,
-    "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"]
+    "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"],
+    "plantuml.diagramsRoot": "docs/diagrams/src",
+    "plantuml.exportOutDir": "docs/diagrams/out"
 }

@@ -9,3 +9,4 @@ vscode-icons-team.vscode-icons
 kiteco.kite (https://www.kite.com/linux/)
 almenon.arepl
 njpwerner.autodocstring
+jebbs.plantuml-2.14.4
