@@ -62,6 +62,9 @@ dotfiles:
   f_vimrc:
     src: config/vim/vimrc
     dst: ~/.vimrc
+  d_ranger:
+    src: config/ranger
+    dst: ~/.config/ranger
 profiles:
   T570:
     dotfiles:
@@ -83,3 +86,4 @@ profiles:
     - f_private.zsh
     - f_prompt.zsh
     - f_vimrc
+    - d_ranger
