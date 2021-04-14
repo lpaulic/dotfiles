@@ -2,7 +2,7 @@ config:
   backup: true
   banner: false
   create: true
-  dotpath: /opt/github/dotfiles
+  dotpath: ~/Documents/github/dotfiles
   keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
@@ -65,6 +65,9 @@ dotfiles:
   d_ranger:
     src: config/ranger
     dst: ~/.config/ranger
+  f_zshrc:
+    src: config/zsh/zshrc
+    dst: ~/.zshrc
 profiles:
   T570:
     dotfiles:
@@ -87,3 +90,15 @@ profiles:
     - f_prompt.zsh
     - f_vimrc
     - d_ranger
+    - f_zshrc
+  M920T:
+    dotfiles:
+    - f_kitty.conf
+    - f_nord.conf
+    - f_aliases.zsh
+    - f_completion.zsh
+    - f_environment.zsh
+    - f_options.zsh
+    - f_private.zsh
+    - f_prompt.zsh
+    - f_zshrc
