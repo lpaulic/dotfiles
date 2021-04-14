@@ -91,7 +91,7 @@ profiles:
     - f_vimrc
     - d_ranger
     - f_zshrc
-  M920T:
+  kattegat:
     dotfiles:
     - f_kitty.conf
     - f_nord.conf
