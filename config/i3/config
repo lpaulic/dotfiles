@@ -219,9 +219,12 @@ exec --no-startup-id "dunst"
 # flameshot
 exec --no-startup-id "flameshot"
 
-# clipmenu
-exec --no-startup-id "clipmenud"
-bindsym Control+Mod1+h exec --no-startup-id clipmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#5E81AC' -sf '#ECEFF4' -fn 'hack-10'
+## clipmenu
+#exec --no-startup-id "clipmenud"
+#bindsym Control+Mod1+h exec --no-startup-id clipmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#5E81AC' -sf '#ECEFF4' -fn 'hack-10'
+
+# parcelite
+exec --no-startup-id "parcellite"
 
 # wpa_gui
 exec --no-startup-id "wpa_gui -t -q"
