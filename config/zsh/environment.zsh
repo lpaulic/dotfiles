@@ -18,3 +18,13 @@ export arch=x86_64
 
 # set dotfile git repository location
 export DOTREPO="${HOME}/Documents/github/dotfiles"
+
+# set default C and CPP compilers
+CC=clang
+CXX=clang++
+
+# set terminal
+export TERM=xterm
+
+# set terminal window titles
+precmd() {print -Pn "\e]0;%~\a"}
