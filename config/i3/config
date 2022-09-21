@@ -13,7 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack:style=Bold 9
+#font pango:Source Code Pro:style=Bold 9
+font pango:Consolata:style=Bold 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,7 +35,7 @@ font pango:Hack:style=Bold 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -210,11 +211,14 @@ bar {
     	binding_mode       #2E3440 #BF616A #ECEFF4
     }
 
-    status_command i3status
+	status_command i3status
 }
 
 # dunst
 exec --no-startup-id "dunst"
+
+# NetworkManager
+exec --no-startup-id "nm-applet"
 
 # flameshot
 exec --no-startup-id "flameshot"
@@ -226,9 +230,6 @@ exec --no-startup-id "flameshot"
 # parcelite
 exec --no-startup-id "parcellite"
 
-# wpa_gui
-exec --no-startup-id "wpa_gui -t -q"
-
 # pasystray
 exec --no-startup-id "pasystray"
 
@@ -238,8 +239,6 @@ exec_always --no-startup-id feh --bg-fill ~/.config/pictures/wallpaper.jpg
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-
 
 # Sleep bind key
 bindsym XF86Sleep exec --no-startup-id systemctl hibernate && betterlockscreen -l dim

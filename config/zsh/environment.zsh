@@ -24,7 +24,7 @@ CC=clang
 CXX=clang++
 
 # set terminal
-export TERM=xterm
+export TERM=kitty
 
 # set terminal window titles
 precmd() {print -Pn "\e]0;%~\a"}

@@ -14,9 +14,6 @@ dotfiles:
   f_keyboard-shortcuts.pdf:
     src: config/Code/User/keyboard-shortcuts.pdf
     dst: ~/.config/Code/User/keyboard-shortcuts.pdf
-  f_extension-list.txt:
-    src: config/Code/User/extension-list.txt
-    dst: ~/.config/Code/User/extension-list.txt
   f_dunstrc:
     src: config/dunst/dunstrc
     dst: ~/.config/dunst/dunstrc
@@ -68,12 +65,24 @@ dotfiles:
   f_zshrc:
     src: config/zsh/zshrc
     dst: ~/.zshrc
+  f_ssh_config:
+    src: ssh/config
+    dst: ~/.ssh/config
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_xserverrc:
+    src: xserverrc
+    dst: ~/.xserverrc
+  f_spaceship.zsh:
+    src: config/zsh/spaceship/spaceship.zsh
+    dst: ~/.config/zsh/spaceship/spaceship.zsh
+    chmod: '755'
 profiles:
-  T570:
+  olive:
     dotfiles:
     - f_settings.json
     - f_keyboard-shortcuts.pdf
-    - f_extension-list.txt
     - f_dunstrc
     - f_flameshot.ini
     - f_settings.ini
@@ -91,3 +100,7 @@ profiles:
     - f_vimrc
     - d_ranger
     - f_zshrc
+    - f_ssh_config
+    - f_xinitrc
+    - f_xserverrc
+    - f_spaceship.zsh

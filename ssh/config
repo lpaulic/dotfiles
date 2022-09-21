@@ -1,0 +1,8 @@
+Host bitbucket.org
+     User githttps://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/
+     Hostname bitbucket.org
+     IdentityFile ~/.ssh/sentinel_id_ed25519
+     HostKeyAlgorithms +ssh-dss
+
+Host 192.168.1.1
+	HostKeyAlgorithms +ssh-rsa
