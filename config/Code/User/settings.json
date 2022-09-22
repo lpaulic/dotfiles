@@ -26,8 +26,8 @@
     "explorer.confirmDelete": false,
     "scm.diffDecorations": "all",
     "git.confirmSync": false,
-    "terminal.external.linuxExec": "alacritty",
-    "C_Cpp.intelliSenseEngine": "disabled",
+    "terminal.external.linuxExec": "kitty",
+    "C_Cpp.intelliSenseEngine": "Disabled",
     "clangd.arguments": [
         "-background-index",
         "-compile-commands-dir=build/"
@@ -40,13 +40,38 @@
     "[cpp]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
+    "clangd.semanticHighlighting.enabled": false,
     "python.languageServer": "Jedi",
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": false,
     "python.linting.lintOnSave": false,
     "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"],
-    "plantuml.diagramsRoot": "docs/diagrams/src",
-    "plantuml.exportOutDir": "docs/diagrams/out",
+    "plantuml.exportOutDir": "docs/assets/images",
+    "plantuml.exportIncludeFolderHeirarchy": false,
+    "plantuml.exportSubFolder": false,
     "editor.guides.indentation": false,
-    "workbench.colorTheme": "Nord"
+    "workbench.colorTheme": "Nord",
+    "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json"],
+    "rust-analyzer.semanticHighlighting.operator.specialization.enable": true,
+    "rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang": true,
+    "rust-analyzer.semanticHighlighting.punctuation.specialization.enable": true,
+    "rust-analyzer.interpret.tests": true,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "[rust]": {
+        "editor.semanticHighlighting.enabled": false
+    },
+    "cSpell.userWords": [
+        "clippy",
+        "cpus",
+        "gethostname",
+        "HDLC",
+        "impls",
+        "Mqtt",
+        "pngme",
+        "rumqttc",
+        "rustdoc",
+        "rustfmt",
+        "rustup",
+        "sysinfo"
+    ],
 }
