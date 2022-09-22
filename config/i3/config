@@ -233,6 +233,9 @@ exec --no-startup-id "parcellite"
 # pasystray
 exec --no-startup-id "pasystray"
 
+# bluetooth
+exec --no-startup-id "blueman-applet"
+
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.config/pictures/wallpaper.jpg
 

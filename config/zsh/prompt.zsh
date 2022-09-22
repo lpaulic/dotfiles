@@ -13,5 +13,7 @@ fi
 #prompt spaceship
 
 ##new way
+SPACESHIP_USER_SHOW=always
+SPACESHIP_HOST_SHOW=always
 source "$XDG_CONFIG_HOME/zsh/spaceship/spaceship.zsh"
 

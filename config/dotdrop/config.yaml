@@ -74,10 +74,9 @@ dotfiles:
   f_xserverrc:
     src: xserverrc
     dst: ~/.xserverrc
-  f_spaceship.zsh:
-    src: config/zsh/spaceship/spaceship.zsh
-    dst: ~/.config/zsh/spaceship/spaceship.zsh
-    chmod: '755'
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
 profiles:
   olive:
     dotfiles:
@@ -103,4 +102,4 @@ profiles:
     - f_ssh_config
     - f_xinitrc
     - f_xserverrc
-    - f_spaceship.zsh
+    - f_gitconfig
