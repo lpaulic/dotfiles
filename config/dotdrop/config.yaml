@@ -80,6 +80,9 @@ dotfiles:
   d_vscode:
     src: vscode
     dst: ~/.vscode
+  d_autorandr:
+    src: config/autorandr
+    dst: ~/.config/autorandr
 profiles:
   olive:
     dotfiles:
@@ -106,6 +109,7 @@ profiles:
     - f_xinitrc
     - f_xserverrc
     - f_gitconfig
+    - d_autorandr
   oak:
     dotfiles:
     - f_settings.json
@@ -131,3 +135,4 @@ profiles:
     - f_xinitrc
     - f_xserverrc
     - f_gitconfig    
+    - d_autorandr
