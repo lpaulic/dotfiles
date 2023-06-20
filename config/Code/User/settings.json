@@ -45,6 +45,7 @@
     "python.linting.enabled": false,
     "python.linting.lintOnSave": false,
     "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"],
+    "plantuml.diagramsRoot": "docs/assets/diagrams",
     "plantuml.exportOutDir": "docs/assets/images",
     "plantuml.exportIncludeFolderHeirarchy": false,
     "plantuml.exportSubFolder": false,
