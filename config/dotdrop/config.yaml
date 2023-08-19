@@ -103,3 +103,28 @@ profiles:
     - f_xinitrc
     - f_xserverrc
     - f_gitconfig
+  oak:
+    dotfiles:
+    - f_settings.json
+    - f_keyboard-shortcuts.pdf
+    - f_dunstrc
+    - f_flameshot.ini
+    - f_settings.ini
+    - f_config
+    - f_i3status_config
+    - f_kitty.conf
+    - f_nord.conf
+    - d_pictures
+    - f_aliases.zsh
+    - f_completion.zsh
+    - f_environment.zsh
+    - f_options.zsh
+    - f_private.zsh
+    - f_prompt.zsh
+    - f_vimrc
+    - d_ranger
+    - f_zshrc
+    - f_ssh_config
+    - f_xinitrc
+    - f_xserverrc
+    - f_gitconfig    
