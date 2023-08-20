@@ -4,7 +4,6 @@
     "breadcrumbs.enabled": true,
     "window.zoomLevel": 0,
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "vscode-icons",
     "workbench.activityBar.visible": true,
     "workbench.list.openMode": "doubleClick",
@@ -16,15 +15,19 @@
     "editor.hideCursorInOverviewRuler": true,
     "editor.formatOnSave": true,
     "editor.trimAutoWhitespace": true,
+    "editor.semanticHighlighting.enabled": false,
     "json.format.enable": false,
-    "editor.renderIndentGuides": false,
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "scm.diffDecorations": "all",
     "git.confirmSync": false,
     "terminal.external.linuxExec": "alacritty",
-    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.arguments": [
         "-background-index",
         "-compile-commands-dir=build/"
@@ -37,12 +40,13 @@
     "[cpp]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
-    "clangd.semanticHighlighting": false,
     "python.languageServer": "Jedi",
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": false,
     "python.linting.lintOnSave": false,
     "python.formatting.autopep8Args": ["--max-line-length", "160", "--experimental"],
     "plantuml.diagramsRoot": "docs/diagrams/src",
-    "plantuml.exportOutDir": "docs/diagrams/out"
+    "plantuml.exportOutDir": "docs/diagrams/out",
+    "editor.guides.indentation": false,
+    "workbench.colorTheme": "Nord"
 }
