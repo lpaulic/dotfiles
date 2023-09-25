@@ -77,9 +77,6 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
-  d_vscode:
-    src: vscode
-    dst: ~/.vscode
   d_autorandr:
     src: config/autorandr
     dst: ~/.config/autorandr
