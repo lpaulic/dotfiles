@@ -15,5 +15,6 @@ fi
 ##new way
 SPACESHIP_USER_SHOW=always
 SPACESHIP_HOST_SHOW=always
+SPACESHIP_ASYNC_SHOW=false
 source "$XDG_CONFIG_HOME/zsh/spaceship/spaceship.zsh"
 
