@@ -104,6 +104,12 @@ dotfiles:
   f_work_gitconfig:
     src: work_gitconfig
     dst: ~/.gitconfig
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_themes:
+    src: themes
+    dst: ~/.themes
 profiles:
   olive:
     dotfiles:
@@ -131,6 +137,8 @@ profiles:
     - f_xserverrc
     - f_gitconfig
     - d_autorandr
+    - d_nvim
+    - d_themes
   oak:
     dotfiles:
     - f_settings.json
@@ -155,5 +163,5 @@ profiles:
     - f_work_ssh_config
     - f_xinitrc
     - f_xserverrc
-    - f_work_gitconfig    
+    - f_work_gitconfig
     - d_autorandr
