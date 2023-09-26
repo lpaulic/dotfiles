@@ -80,6 +80,30 @@ dotfiles:
   d_autorandr:
     src: config/autorandr
     dst: ~/.config/autorandr
+  f_work_aliases.zsh:
+    src: config/zsh/work_aliases.zsh
+    dst: ~/.config/zsh/aliases.zsh
+  f_work_completion.zsh:
+    src: config/zsh/work_completion.zsh
+    dst: ~/.config/zsh/completion.zsh
+  f_work_environment.zsh:
+    src: config/zsh/work_environment.zsh
+    dst: ~/.config/zsh/environment.zsh
+  f_work_options.zsh:
+    src: config/zsh/work_options.zsh
+    dst: ~/.config/zsh/options.zsh
+  f_work_private.zsh:
+    src: config/zsh/work_private.zsh
+    dst: ~/.config/zsh/private.zsh
+  f_work_prompt.zsh:
+    src: config/zsh/work_prompt.zsh
+    dst: ~/.config/zsh/prompt.zsh
+  f_work_ssh_config:
+    src: ssh/work_config
+    dst: ~/.ssh/config
+  f_work_gitconfig:
+    src: work_gitconfig
+    dst: ~/.gitconfig
 profiles:
   olive:
     dotfiles:
@@ -119,17 +143,17 @@ profiles:
     - f_kitty.conf
     - f_nord.conf
     - d_pictures
-    - f_aliases.zsh
-    - f_completion.zsh
-    - f_environment.zsh
-    - f_options.zsh
-    - f_private.zsh
-    - f_prompt.zsh
+    - f_work_aliases.zsh
+    - f_work_completion.zsh
+    - f_work_environment.zsh
+    - f_work_options.zsh
+    - f_work_private.zsh
+    - f_work_prompt.zsh
     - f_vimrc
     - d_ranger
     - f_zshrc
-    - f_ssh_config
+    - f_work_ssh_config
     - f_xinitrc
     - f_xserverrc
-    - f_gitconfig    
+    - f_work_gitconfig    
     - d_autorandr

@@ -1,0 +1,21 @@
+# first include of the environment
+source ${HOME}/.config/zsh/environment.zsh
+
+typeset -ga sources
+sources+="$XDG_CONFIG_HOME/zsh/options.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/aliases.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/prompt.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/private.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/completion.zsh" # completion config needs to be after system and private config
+
+# try to include all sources
+foreach file (`echo $sources`)
+    if [[ -a $file ]]; then
+        source $file
+    fi
+end
+
+# start xserver if not started
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
+
+return 0
