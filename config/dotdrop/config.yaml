@@ -56,9 +56,6 @@ dotfiles:
   f_prompt.zsh:
     src: config/zsh/prompt.zsh
     dst: ~/.config/zsh/prompt.zsh
-  f_vimrc:
-    src: config/vim/vimrc
-    dst: ~/.vimrc
   d_ranger:
     src: config/ranger
     dst: ~/.config/ranger
@@ -129,7 +126,6 @@ profiles:
     - f_options.zsh
     - f_private.zsh
     - f_prompt.zsh
-    - f_vimrc
     - d_ranger
     - f_zshrc
     - f_ssh_config
@@ -157,7 +153,6 @@ profiles:
     - f_work_options.zsh
     - f_work_private.zsh
     - f_work_prompt.zsh
-    - f_vimrc
     - d_ranger
     - f_zshrc
     - f_work_ssh_config
