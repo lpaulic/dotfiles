@@ -160,3 +160,5 @@ profiles:
     - f_xserverrc
     - f_work_gitconfig
     - d_autorandr
+    - d_nvim
+    - d_themes
