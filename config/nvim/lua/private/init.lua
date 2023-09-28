@@ -1,2 +1,2 @@
 require("private.remap")
-print("hello from the private")
+require("private.options")
