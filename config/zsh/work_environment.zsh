@@ -5,8 +5,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 #set EDITOR
-if [[ -a "/usr/bin/vim" ]]; then
-	export EDITOR="vim"
+if [[ -a "/usr/bin/nvim" ]]; then
+	export EDITOR="nvim"
 fi
 
 #  set locale
