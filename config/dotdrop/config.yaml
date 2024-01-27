@@ -8,9 +8,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_settings.json:
-    src: config/Code/User/settings.json
-    dst: ~/.config/Code/User/settings.json
   f_keyboard-shortcuts.pdf:
     src: config/Code/User/keyboard-shortcuts.pdf
     dst: ~/.config/Code/User/keyboard-shortcuts.pdf
@@ -110,7 +107,6 @@ dotfiles:
 profiles:
   olive:
     dotfiles:
-    - f_settings.json
     - f_keyboard-shortcuts.pdf
     - f_dunstrc
     - f_flameshot.ini
@@ -137,7 +133,6 @@ profiles:
     - d_themes
   oak:
     dotfiles:
-    - f_settings.json
     - f_keyboard-shortcuts.pdf
     - f_dunstrc
     - f_flameshot.ini
