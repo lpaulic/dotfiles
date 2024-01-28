@@ -13,7 +13,7 @@ LEFT_KEY='^[[D'
 RIGHT_KEY='^[[C'
 PAGEUP_KEY='^[[5~'
 PAGEDOWN_KEY='^[[6~'
-ESC_KEY='^['
+#ESC_KEY='^['
 CTRL_LEFT_KEY='^[[1;5D'
 CTRL_RIGHT_KEY='^[[1;5C'
 
@@ -27,7 +27,7 @@ bindkey		${LEFT_KEY}				backward-char
 bindkey  	${RIGHT_KEY}	        forward-char
 bindkey 	${PAGEUP_KEY}	        history-beginning-search-backward
 bindkey 	${PAGEDOWN_KEY}         history-beginning-search-forward
-bindkey 	${ESC_KEY}				kill-whole-line
+#bindkey 	${ESC_KEY}				kill-whole-line
 bindkey     ${CTRL_LEFT_KEY}        backward-word
 bindkey     ${CTRL_RIGHT_KEY}       forward-word
 bindkey 	'^H' 					history-beginning-search-menu-end
