@@ -8,9 +8,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_keyboard-shortcuts.pdf:
-    src: config/Code/User/keyboard-shortcuts.pdf
-    dst: ~/.config/Code/User/keyboard-shortcuts.pdf
   f_dunstrc:
     src: config/dunst/dunstrc
     dst: ~/.config/dunst/dunstrc
@@ -26,12 +23,6 @@ dotfiles:
   f_i3status_config:
     src: config/i3status/config
     dst: ~/.config/i3status/config
-  f_kitty.conf:
-    src: config/kitty/kitty.conf
-    dst: ~/.config/kitty/kitty.conf
-  f_nord.conf:
-    src: config/kitty/nord.conf
-    dst: ~/.config/kitty/nord.conf
   d_pictures:
     src: config/pictures
     dst: ~/.config/pictures
@@ -104,17 +95,17 @@ dotfiles:
   d_themes:
     src: themes
     dst: ~/.themes
+  f_alacritty.toml:
+    src: config/alacritty/alacritty.toml
+    dst: ~/.config/alacritty/alacritty.toml
 profiles:
   olive:
     dotfiles:
-    - f_keyboard-shortcuts.pdf
     - f_dunstrc
     - f_flameshot.ini
     - f_settings.ini
     - f_config
     - f_i3status_config
-    - f_kitty.conf
-    - f_nord.conf
     - d_pictures
     - f_aliases.zsh
     - f_completion.zsh
@@ -131,16 +122,14 @@ profiles:
     - d_autorandr
     - d_nvim
     - d_themes
+    - f_alacritty.toml
   oak:
     dotfiles:
-    - f_keyboard-shortcuts.pdf
     - f_dunstrc
     - f_flameshot.ini
     - f_settings.ini
     - f_config
     - f_i3status_config
-    - f_kitty.conf
-    - f_nord.conf
     - d_pictures
     - f_work_aliases.zsh
     - f_work_completion.zsh
