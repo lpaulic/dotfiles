@@ -7,13 +7,11 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
-        output_format = "i3bar"
-  	colors = true
-  	color_good = "#A3BE8C"
-  	color_degraded = "#EBCB8B"
-  	color_bad = "#BF616A"
+  output_format = "i3bar"
+  colors = true
+  color_good = "#98BB6C"
+  color_degraded = "#E6C384"
+  color_bad = "#E82424"
 }
 
 order += "volume master"
