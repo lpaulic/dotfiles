@@ -1,3 +1,5 @@
 [user]
 	email = luka.paulic@rimac-technology.com
 	name = Luka Paulić
+[color]
+	ui = auto
