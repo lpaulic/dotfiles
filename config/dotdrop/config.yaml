@@ -89,6 +89,9 @@ dotfiles:
   f_work_gitconfig:
     src: work_gitconfig
     dst: ~/.gitconfig
+  d_work_autorandr:
+    src: config/work_autorandr
+    dst: ~/.config/autorandr
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
@@ -143,6 +146,7 @@ profiles:
     - f_xinitrc
     - f_xserverrc
     - f_work_gitconfig
-    - d_autorandr
+    - d_work_autorandr
     - d_nvim
     - d_themes
+    - f_alacritty.toml
