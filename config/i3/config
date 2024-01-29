@@ -41,7 +41,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "dmenu_run -nf '#C8C093' -nb '#090618' -sb '#7FB4CA' -sf '#FFFFFF' -fn 'hack-10' -p 'dmenu >'"
+bindsym $mod+d exec "dmenu_run -nf '#C8C093' -nb '#011640' -sb '#78A8FF' -sf '#FFFFFF' -fn 'hack-10' -p 'dmenu >'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -189,26 +189,28 @@ bindsym $mod+Escape mode "$mode_system"
 # finds out, if available)
 
 # class                 border  bground text    indicator child_border
-client.focused          #7FB4CA #7FB4CA #FFFFFF #7FB4CA   #7FB4CA
+client.focused          #78A8FF #78A8FF #FFFFFF #78A8FF   #78A8FF
 client.focused_inactive #5F676A #5F676A #FFFFFF #5F676A   #5F676A
-client.unfocused        #1F1F28 #1F1F28 #C8C093 #1F1F28   #1F1F28
+client.unfocused        #011640 #011640 #C8C093 #011640   #011640
 client.urgent           #C34043 #C34043 #FFFFFF #C34043   #C34043
 client.placeholder      #090618 #090618 #c8c093 #090618   #090618
 
 client.background       #FFFFFF
 
 bar {
-  colors {
-    background #090618
-    statusline #C8C093
-    separator  #666666
+    colors {
+        background #090618
+        statusline #C8C093
+        separator  #666666
 
-    focused_workspace  #7FB4CA #7FB4CA #FFFFFF
-    active_workspace   #5F676A #5F676A #FFFFFF
-    inactive_workspace #090618 #090618 #C8C093
-    urgent_workspace   #C34043 #C34043 #FFFFFF
-    binding_mode       #C34043 #C34043 #FFFFFF
-  }
+        focused_workspace  #78A8FF #78A8FF #FFFFFF
+        active_workspace   #5F676A #5F676A #FFFFFF
+        inactive_workspace #011640 #011640 #C8C093
+        urgent_workspace   #C34043 #C34043 #FFFFFF
+        binding_mode       #C34043 #C34043 #FFFFFF
+    }
+
+    status_command i3status
 }
 
 # picom
