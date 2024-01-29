@@ -2,7 +2,13 @@ HostKeyAlgorithms = +ssh-rsa
 PubkeyAcceptedAlgorithms = +ssh-rsa
 
 Host 172.21.3.41
-	HostName 172.21.3.41
+    HostName 172.21.3.41
+    User lpaulic
+
+Host 172.21.3.40 172.21.3.35 172.21.3.13 172.21.3.33 172.21.3.41 172.21.3.42 172.21.3.43 172.21.3.45 172.21.3.46 172.21.3.60 172.21.3.61 172.21.3.68 172.21.3.97 172.21.3.86 172.21.3.89 172.21.3.104
+    #    PreferredAuthentications publickey
+    HostKeyAlgorithms +ssh-ed25519
+    IdentityFile ~/.ssh/id_bm04_ed25519
 
 Host 192.168.1.1
 	HostKeyAlgorithms +ssh-rsa
