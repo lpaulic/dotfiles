@@ -71,6 +71,9 @@ dotfiles:
   f_alacritty.toml:
     src: config/alacritty/alacritty.toml
     dst: ~/.config/alacritty/alacritty.toml
+  d_tmux:
+    src: config/tmux
+    dst: ~/.config/tmux
 profiles:
   olive:
     dotfiles:
@@ -96,3 +99,4 @@ profiles:
     - d_themes
     - f_alacritty.toml
 
+    - d_tmux
