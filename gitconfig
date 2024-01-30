@@ -1,10 +1,11 @@
 [user]
-	email = luka.paulic0@gmail.com
-	name = Luka Paulić
+    email = luka.paulic0@gmail.com
+    name = Luka Paulić
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [alias]
-	logadog = log --all --decorate --oneline --graph
+    logadog = log --all --decorate --oneline --graph
+    cat = "!g_cat() { git show $1:$2 ; }; g_cat"

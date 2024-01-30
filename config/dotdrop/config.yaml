@@ -44,9 +44,6 @@ dotfiles:
   f_prompt.zsh:
     src: config/zsh/prompt.zsh
     dst: ~/.config/zsh/prompt.zsh
-  d_ranger:
-    src: config/ranger
-    dst: ~/.config/ranger
   f_zshrc:
     src: config/zsh/zshrc
     dst: ~/.zshrc
@@ -65,33 +62,6 @@ dotfiles:
   d_autorandr:
     src: config/autorandr
     dst: ~/.config/autorandr
-  f_work_aliases.zsh:
-    src: config/zsh/work_aliases.zsh
-    dst: ~/.config/zsh/aliases.zsh
-  f_work_completion.zsh:
-    src: config/zsh/work_completion.zsh
-    dst: ~/.config/zsh/completion.zsh
-  f_work_environment.zsh:
-    src: config/zsh/work_environment.zsh
-    dst: ~/.config/zsh/environment.zsh
-  f_work_options.zsh:
-    src: config/zsh/work_options.zsh
-    dst: ~/.config/zsh/options.zsh
-  f_work_private.zsh:
-    src: config/zsh/work_private.zsh
-    dst: ~/.config/zsh/private.zsh
-  f_work_prompt.zsh:
-    src: config/zsh/work_prompt.zsh
-    dst: ~/.config/zsh/prompt.zsh
-  f_work_ssh_config:
-    src: ssh/work_config
-    dst: ~/.ssh/config
-  f_work_gitconfig:
-    src: work_gitconfig
-    dst: ~/.gitconfig
-  d_work_autorandr:
-    src: config/work_autorandr
-    dst: ~/.config/autorandr
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
@@ -100,9 +70,6 @@ dotfiles:
     dst: ~/.themes
   f_alacritty.toml:
     src: config/alacritty/alacritty.toml
-    dst: ~/.config/alacritty/alacritty.toml
-  f_work_alacritty.toml:
-    src: config/alacritty/work_alacritty.toml
     dst: ~/.config/alacritty/alacritty.toml
 profiles:
   olive:
@@ -119,7 +86,6 @@ profiles:
     - f_options.zsh
     - f_private.zsh
     - f_prompt.zsh
-    - d_ranger
     - f_zshrc
     - f_ssh_config
     - f_xinitrc
@@ -129,27 +95,4 @@ profiles:
     - d_nvim
     - d_themes
     - f_alacritty.toml
-  oak:
-    dotfiles:
-    - f_dunstrc
-    - f_flameshot.ini
-    - f_settings.ini
-    - f_config
-    - f_i3status_config
-    - d_pictures
-    - f_work_aliases.zsh
-    - f_work_completion.zsh
-    - f_work_environment.zsh
-    - f_work_options.zsh
-    - f_work_private.zsh
-    - f_work_prompt.zsh
-    - d_ranger
-    - f_zshrc
-    - f_work_ssh_config
-    - f_xinitrc
-    - f_xserverrc
-    - f_work_gitconfig
-    - d_work_autorandr
-    - d_nvim
-    - d_themes
-    - f_alacritty.toml
+

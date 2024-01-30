@@ -11,11 +11,9 @@ return {
         -- glue logic that connects mason and nvim-lspconfig
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
-        config = function()
-            require("mason-lspconfig").setup({
-                auto_install = true
-            })
-        end
+        opts = {
+            auto_install = true,
+        }
     },
     {
         -- LSP client in nvim
@@ -28,9 +26,9 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities
             })
-            lspconfig.bashls.setup({
-                capabilities = capabilities
-            })
+            --lspconfig.bashls.setup({
+            --    capabilities = capabilities
+            --})
             lspconfig.clangd.setup({
                 capabilities = capabilities
             })
