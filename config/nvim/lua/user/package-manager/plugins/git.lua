@@ -7,7 +7,7 @@ return {
         config = function()
             require('gitsigns').setup()
 
-            vim.keymap.set("n", "<leader>pgc", ":Gitsense preview_hunk<CR>", {})
+            vim.keymap.set("n", "<leader>pgc", ":Gitsigns preview_hunk<CR>", {})
         end
     }
 }

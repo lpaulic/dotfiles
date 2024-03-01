@@ -1,11 +1,9 @@
 local options = {
     backup = false,                                     -- do not create a backup file
-    paste = true,                                       -- use OS clipboard when pasting
     clipboard = "unnamedplus",                          -- allows neovim to access the system clipboard
     cmdheight = 2,                                      -- more space for the neovim command line for displaying messages
     complete = "",                                      -- clear because nvim-cmp is used
-    completeopt = "",                                   -- clear because nvim-cmp is used
-    --completeopt = { "menu", "menuone", "noselect" },    -- mosly just for cmp
+    completeopt = { },                                  -- mosly just for cmp
     conceallevel = 0,                                   -- so taht `` is visible in markdown files
     fileencoding = "utf-8",                             -- the encoding written to a file
     incsearch = true,                                   -- search as you type
