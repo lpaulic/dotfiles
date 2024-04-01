@@ -18,7 +18,7 @@ export LANGUAGE=en_US.UTF-8
 export arch=x86_64
 
 # set dotfile git repository location
-export DOTREPO="${HOME}/Documents/github/dotfiles"
+export DOTREPO="${HOME}/Documents/SCM/GitHub/dotfiles"
 
 # set default C and CPP compilers
 CC=clang
