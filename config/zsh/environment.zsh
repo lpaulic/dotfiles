@@ -21,8 +21,8 @@ export arch=x86_64
 export DOTREPO="${HOME}/Documents/SCM/GitHub/dotfiles"
 
 # set default C and CPP compilers
-CC=clang
-CXX=clang++
+# CC=clang
+# CXX=clang++
 
 # set terminal
 export TERM=alacritty
