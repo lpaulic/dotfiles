@@ -1,0 +1,5 @@
+[user]
+	name = Luka Paulić
+	email = luka.paulic@byte-lab.com
+[include]
+    path = ~/.config/git/gitconfig.common
