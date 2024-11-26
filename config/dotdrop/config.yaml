@@ -8,6 +8,20 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
+  f_gitconfig:
+    src: config/git/gitconfig
+    dst: ~/.gitconfig
+  d_git:
+    src: config/git
+    dst: ~/.config/git
+    upignore:
+    - '*/gitconfig'
+    instignore:
+    - '*/gitconfig'
+    cmpignore:
+    - '*/gitconfig'
 profiles:
   olive:
     dotfiles:
+    - f_gitconfig
+    - d_git
