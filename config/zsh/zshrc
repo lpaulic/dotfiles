@@ -1,0 +1,27 @@
+# first include of the environment
+source ${HOME}/.config/zsh/environment.zsh
+
+typeset -ga sources
+sources+="$XDG_CONFIG_HOME/zsh/options.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/aliases.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/prompt.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/private.zsh"
+sources+="$XDG_CONFIG_HOME/zsh/completion.zsh" # completion config needs to be after system and private config
+
+# try to include all sources
+foreach file (`echo $sources`)
+    if [[ -a $file ]]; then
+        source $file
+    fi
+end
+
+# start sway
+if [[ -z $DISPLAY && $TTY = /dev/tty1 ]]; then
+  exec Hyprland
+fi
+
+return 0
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -26,6 +26,18 @@ dotfiles:
   f_starship.toml:
     src: config/starship/starship.toml
     dst: ~/.config/starship/starship.toml
+  f_zshrc:
+    src: config/zsh/zshrc
+    dst: ~/.zshrc
+  d_zsh:
+    src: config/zsh
+    dst: ~/.config/zsh
+    upignore:
+    - '*/zshrc'
+    instignore:
+    - '*/zshrc'
+    cmpignore:
+    - '*/zshrc'
 profiles:
   olive:
     dotfiles:
@@ -33,3 +45,5 @@ profiles:
     - d_git
     - d_hypr
     - f_starship.toml
+    - f_zshrc
+    - d_zsh
