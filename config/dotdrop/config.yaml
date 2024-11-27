@@ -38,6 +38,9 @@ dotfiles:
     - '*/zshrc'
     cmpignore:
     - '*/zshrc'
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
 profiles:
   olive:
     dotfiles:
@@ -47,3 +50,4 @@ profiles:
     - f_starship.toml
     - f_zshrc
     - d_zsh
+    - d_alacritty
