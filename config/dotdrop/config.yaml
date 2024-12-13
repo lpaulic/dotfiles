@@ -53,6 +53,9 @@ dotfiles:
   d_rofi:
     src: config/rofi
     dst: ~/.config/rofi
+  f_tmux.conf:
+    src: config/tmux/tmux.conf
+    dst: ~/.config/tmux/tmux.conf
 profiles:
   olive:
     dotfiles:
@@ -67,3 +70,4 @@ profiles:
     - d_swaync
     - d_nvim
     - d_rofi
+    - f_tmux.conf
