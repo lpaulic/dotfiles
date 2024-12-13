@@ -41,6 +41,9 @@ dotfiles:
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
 profiles:
   olive:
     dotfiles:
@@ -51,3 +54,4 @@ profiles:
     - f_zshrc
     - d_zsh
     - d_alacritty
+    - d_waybar

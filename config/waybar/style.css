@@ -1,0 +1,159 @@
+@import "mocha.css";
+
+* {
+    font-family: Fira Code Nerd Font;
+    font-size: 15px;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#bluetooth,
+#tray,
+#language,
+#battery,
+#pulseaudio,
+#backlight,
+#clock,
+#custom-notification,
+#custom-lock,
+#custom-power {
+    background-color: @surface0;
+    padding: 0.5rem 0.5rem;
+    margin: 5px 0;
+}
+
+#cpu {
+    color: @lavender;
+    border-radius: 1rem 0px 0px 1rem;
+    margin-left: 1rem;
+}
+
+#memory {
+    color: @sapphire;
+}
+
+#disk {
+    color: @mauve;
+}
+
+#temperature {
+    color: @red;
+}
+
+#network {
+    color: @sapphire;
+}
+
+#network.disconnnected {
+    color: @red;
+}
+
+#network.disabled {
+    color: @grey;
+}
+
+#bluetooth {
+    color: @blue;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 1rem;
+}
+
+#bluetooth.connected {
+    color: @green;
+}
+
+#bluetooth.off {
+    color: @red;
+}
+
+#bluetooth.disabled {
+    color: @grey;
+}
+
+#workspaces {
+    border-radius: 1rem;
+    margin: 4px;
+    background-color: @surface0;
+    margin-left: 1rem;
+}
+
+#workspaces button {
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0.4rem;
+}
+
+#workspaces button.active {
+    color: @sky;
+    border-radius: 1rem;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+    border-radius: 1rem;
+}
+
+#tray {
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+#language {
+    color: @mauve;
+    border-radius: 1rem 0px 0px 1rem;
+    margin-left: 1rem;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @maroon;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#backlight, #battery {
+    border-radius: 0;
+}
+
+#clock {
+    color: @blue;
+}
+
+#custom-notification {
+  color: @maroon;
+  font-family: "Fira Code Nerd Font";
+}
+
+#custom-lock {
+    color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    border-radius: 0px 1rem 1rem 0px;
+    color: @red;
+}
+
