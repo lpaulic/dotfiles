@@ -42,7 +42,7 @@ setopt always_to_end
 # HISTORY
 HISTSIZE=1024
 SAVEHIST=1024
-HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
+HISTFILE=$XDG_CACHE_HOME/zsh_history
 setopt hist_ignore_all_dups
 # unsetopt share_history
 setopt share_history
