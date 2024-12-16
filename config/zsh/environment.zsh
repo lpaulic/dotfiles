@@ -35,8 +35,11 @@ export LANGUAGE=en_US.UTF-8
 # set  architecture
 export arch=x86_64
 
-# set dotfile git repository location
-export DOTREPO="${HOME}/Documents/SCM/GitHub/dotfiles"
+# set dotfile environemnt variables
+export DOTREPO="${HOME}/.dotfiles"
+export DOTDROP_CONFIG="${DOTREPO}/config/dotdrop/config.yaml"
+# the HOST follows the following template <profile>-<machine-sn-last-4-character>
+export DOTDROP_PROFILE="$(echo ${HOST} | cut -d '-' -f 1)"
 
 # set default C and CPP compilers
 # CC=clang

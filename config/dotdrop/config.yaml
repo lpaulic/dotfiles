@@ -2,7 +2,7 @@ config:
   backup: true
   banner: false
   create: true
-  dotpath: ~/Documents/SCM/GitHub/dotfiles
+  dotpath: ~/.dotfiles
   keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
@@ -72,7 +72,7 @@ dotfiles:
     src: config/grub/themes
     dst: /usr/share/grub/themes
 profiles:
-  olive:
+  ginkgo:
     dotfiles:
     - f_gitconfig
     - d_git
