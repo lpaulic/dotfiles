@@ -23,9 +23,13 @@ dotfiles:
   d_hypr:
     src: config/hypr
     dst: ~/.config/hypr
+  f_starship.toml:
+    src: config/starship/starship.toml
+    dst: ~/.config/starship/starship.toml
 profiles:
   olive:
     dotfiles:
     - f_gitconfig
     - d_git
     - d_hypr
+    - f_starship.toml
