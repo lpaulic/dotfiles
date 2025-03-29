@@ -20,8 +20,12 @@ dotfiles:
     - '*/gitconfig'
     cmpignore:
     - '*/gitconfig'
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
 profiles:
   olive:
     dotfiles:
     - f_gitconfig
     - d_git
+    - d_hypr
