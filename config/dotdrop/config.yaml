@@ -47,6 +47,12 @@ dotfiles:
   d_swaync:
     src: config/swaync
     dst: ~/.config/swaync
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
 profiles:
   olive:
     dotfiles:
@@ -59,3 +65,5 @@ profiles:
     - d_alacritty
     - d_waybar
     - d_swaync
+    - d_nvim
+    - d_rofi
