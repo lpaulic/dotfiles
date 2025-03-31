@@ -59,6 +59,9 @@ dotfiles:
   f_flameshot.ini:
     src: config/flameshot/flameshot.ini
     dst: ~/.config/flameshot/flameshot.ini
+  d_clipse:
+    src: config/clipse
+    dst: ~/.config/clipse
 profiles:
   olive:
     dotfiles:
@@ -75,3 +78,4 @@ profiles:
     - f_tmux.conf
     - d_nvim
     - f_flameshot.ini
+    - d_clipse
