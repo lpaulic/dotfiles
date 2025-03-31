@@ -62,6 +62,9 @@ dotfiles:
   d_clipse:
     src: config/clipse
     dst: ~/.config/clipse
+  d_ranger:
+    src: config/ranger
+    dst: ~/.config/ranger
 profiles:
   olive:
     dotfiles:
@@ -79,3 +82,4 @@ profiles:
     - d_nvim
     - f_flameshot.ini
     - d_clipse
+    - d_ranger
