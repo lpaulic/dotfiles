@@ -65,6 +65,12 @@ dotfiles:
   d_ranger:
     src: config/ranger
     dst: ~/.config/ranger
+  f_grub:
+    src: config/grub/grub
+    dst: /etc/default/grub
+  d_grub_themes:
+    src: config/grub/themes
+    dst: /usr/share/grub/themes
 profiles:
   olive:
     dotfiles:
@@ -83,3 +89,5 @@ profiles:
     - f_flameshot.ini
     - d_clipse
     - d_ranger
+    - f_grub
+    - d_grub_themes
