@@ -56,6 +56,9 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  f_flameshot.ini:
+    src: config/flameshot/flameshot.ini
+    dst: ~/.config/flameshot/flameshot.ini
 profiles:
   olive:
     dotfiles:
@@ -71,3 +74,4 @@ profiles:
     - d_rofi
     - f_tmux.conf
     - d_nvim
+    - f_flameshot.ini
