@@ -37,7 +37,9 @@ export arch=x86_64
 
 # set dotfile environemnt variables
 export DOTREPO="${HOME}/.dotfiles"
-export DOTDROP_CONFIG="${DOTREPO}/config/dotdrop/config.yaml"
+export DOTDROP_CONFIG="${DOTREPO}/config/dotdrop/config-user.yaml"
+# custom variable
+export DOTDROP_SYSTEM_CONFIG="${DOTREPO}/config/dotdrop/config-system.yaml"
 # the HOST follows the following template <profile>-<machine-sn-last-4-character>
 export DOTDROP_PROFILE="$(echo ${HOST} | cut -d '-' -f 1)"
 

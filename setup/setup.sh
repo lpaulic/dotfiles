@@ -43,8 +43,9 @@ validate_host_name() {
 install_dotfiles() {
     local profile="${1}"
     local dotfiles_dir_path="${script_dir_path}/.."
-   
-    ${no_sudo} dotdrop -b -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config.yaml" install &>/dev/null || { return 1; } 
+ 
+    ${no_sudo} dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" install &>/dev/null || { return 1; } 
+    dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-system.yaml" install &>/dev/null || { return 1; } 
 
     return 0
 }
