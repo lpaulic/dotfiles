@@ -65,6 +65,9 @@ dotfiles:
   d_ranger:
     src: config/ranger
     dst: ~/.config/ranger
+  d_kanshi:
+    src: config/kanshi
+    dst: ~/.config/kanshi
 profiles:
   ginkgo:
     dotfiles:
@@ -83,3 +86,4 @@ profiles:
     - f_flameshot.ini
     - d_clipse
     - d_ranger
+    - d_kanshi

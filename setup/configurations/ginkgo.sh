@@ -161,6 +161,7 @@ pacman_package_list=(
     "plantuml"
     "nsxiv"
     "graphviz"
+    "kanshi"
 )
 
 yay_package_list=(

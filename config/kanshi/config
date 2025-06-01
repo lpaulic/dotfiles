@@ -1,0 +1,5 @@
+# Profile for when only the laptop screen is available
+profile laptop {
+    output eDP-1 enable
+}
+
