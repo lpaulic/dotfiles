@@ -14,8 +14,12 @@ dotfiles:
   d_grub_themes:
     src: config/grub/themes
     dst: /usr/share/grub/themes
+  f_logind.conf:
+    src: config/systemd/logind.conf
+    dst: /etc/systemd/logind.conf
 profiles:
   ginkgo:
     dotfiles:
     - f_grub
     - d_grub_themes
+    - f_logind.conf
