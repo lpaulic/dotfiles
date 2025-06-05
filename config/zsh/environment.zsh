@@ -9,7 +9,21 @@ export XDG_SESSION_TYPE=wayland
 #export XDG_SESSION_DESKTOP=Hyprland
 #export XDG_CURRENT_DESKTOP=Hyprland
 
+# Nvidia specific stuff if nvidia is used
+if [[ $(lshw -C display | grep vendor) =~ Nvidia ]]; then
+    export LIBVA_DRIVER_NAME=nvidia
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export LIBVA_DRIVER_NAME=nvidia
+    export GBM_BACKEND=nvidia-drm
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export WLR_BACKEND=vulkan
+fi
+
 # Wayland stuff
+export GDK_BACKEND=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export CLUTTER_BACKEND=wayland
+export XDG_SESSION_TYPE=wayland
 export WLR_NO_HARDWARE_CURSOR=1
 export WLR_RENDERER_ALLOW_SOFTWARE=1
 export MOZ_ENABLE_WAYLAND=1

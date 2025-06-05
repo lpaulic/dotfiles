@@ -1,8 +1,10 @@
+dynvariables:
+  user: test -n "$SUDO_USER" && echo $SUDO_USER || echo $USER 
 config:
   backup: true
   banner: false
   create: true
-  dotpath: ~/.dotfiles
+  dotpath: /home/{{@@ user @@}}/.dotfiles
   keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
@@ -18,8 +20,14 @@ dotfiles:
     src: config/systemd/logind.conf
     dst: /etc/systemd/logind.conf
 profiles:
-  ginkgo:
+  common:
     dotfiles:
     - f_grub
     - d_grub_themes
     - f_logind.conf
+  ginkgo:
+    include:
+      - common
+  maple:
+    include:
+      - common

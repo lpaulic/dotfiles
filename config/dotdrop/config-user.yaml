@@ -69,7 +69,7 @@ dotfiles:
     src: config/kanshi
     dst: ~/.config/kanshi
 profiles:
-  ginkgo:
+  common:
     dotfiles:
     - f_gitconfig
     - d_git
@@ -87,3 +87,9 @@ profiles:
     - d_clipse
     - d_ranger
     - d_kanshi
+  ginkgo:
+    include:
+      - common
+  maple:
+    include:
+      - common

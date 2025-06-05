@@ -1,5 +1,4 @@
 [user]
-    email = programmer.luka@tuta.com
     name = Luka Paulić
 [include]
     path = ~/.config/git/gitconfig.common
