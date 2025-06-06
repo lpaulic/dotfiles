@@ -1,0 +1,168 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "network",
+        "bluetooth"
+    ],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "tray", 
+        "hyprland/language", 
+        "battery", 
+        "pulseaudio", 
+        "backlight", 
+        "clock", 
+        "custom/notification", 
+        "custom/lock", 
+        "custom/power"
+    ],
+
+    /* Modules-Left */
+    "cpu": {
+      "interval": 15,
+      "format": "{usage}% 󰍛 ",
+      "tooltip": false,
+    },
+
+    "memory": {
+      "interval": 15,
+      "format": "{percentage}%  ",
+      "tooltip-format": "{used} used out of {total}",
+    },
+
+    "disk": {
+      "format": "{percentage_used}% 󰋊 ",
+      "tooltip-format": "{used} used out of {total} on {path}",
+    },
+
+    "temperature": {
+      "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+      "format": "{temperatureC}°C  ",
+      "tooltip": false,
+    },
+
+    "network": {
+      "interval": 30,
+      "format-wifi": "  {ipaddr}/{cidr}",
+      "format-ethernet": "󰈁 {ipaddr}/{cidr}",
+      "format-linked": "(No IP) 󰈁",
+      "format-disconnected": "",
+      "format-disabled": "",
+      "tooltip-format-wifi": "{ifname}\t{essid}\t(U:{bandwidthUpBytes}B D:{bandwidthDownBytes}B)\t{frequency}Mhz",
+      "tooltip-format-ethernet": "{ifname}\t\t(U:{bandwidthUpBytes}B D:{bandwidthDownBytes}B)",
+      "tooltip-format-disconnected": "",
+      "tooltip-format-disabled": "",
+      "on-click": "sh -c 'nmcli device wifi rescan' ; alacritty --class nmtui --command nmtui",
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": " {device_alias}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "alacritty --class bluetui --command bluetui"
+    },
+
+    /* Modules-Center */
+
+    "hyprland/workspaces": {
+	    "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "urgent": " ",
+            "active": "",
+            "default": ""
+        },
+    },
+
+    /* Modules-Right */
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+
+    "hyprland/language": {
+        "format": "{short}",
+        "expand": true,
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ☇",
+		"format-plugged": "{capacity}% 🔌",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "clock": {
+        "timezone": "Asia/Dubai",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "📅 {:%Y-%m-%d}",
+        "format": "⌛ {:%H:%M}"
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+        "format": "",
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": "⏻"
+    }
+}
+

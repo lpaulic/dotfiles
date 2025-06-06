@@ -15,7 +15,13 @@ foreach file (`echo $sources`)
     fi
 end
 
-# start xserver if not started
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
+# start sway
+if [[ -z $DISPLAY && $TTY = /dev/tty1 ]]; then
+  exec Hyprland
+fi
 
 return 0
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

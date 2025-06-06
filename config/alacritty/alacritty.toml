@@ -1,46 +1,213 @@
-[[colors.indexed_colors]]
-color = "0xffa066"
-index = 16
 
-[[colors.indexed_colors]]
-color = "0xff5d62"
-index = 17
 
-[colors.bright]
-black = "0x727169"
-blue = "0x7fb4ca"
-cyan = "0x7aa89f"
-green = "0x98bb6c"
-magenta = "0x938aa9"
-red = "0xe82424"
-white = "0xdcd7ba"
-yellow = "0xe6c384"
+[general]
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
+  # "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+  "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
 
-[colors.normal]
-black = "0x090618"
-blue = "0x7e9cd8"
-cyan = "0x6a9589"
-green = "0x76946a"
-magenta = "0x957fb8"
-red = "0xc34043"
-white = "0xc8c093"
-yellow = "0xc0a36e"
+[window]
+padding = { x = 5, y = 5 }
+dynamic_padding = false
+decorations = "full"
+opacity = 0.9
+startup_mode = "Windowed"
+dynamic_title = true
+title = "Alacritty"
+decorations_theme_variant = "None"
 
-[colors.primary]
-background = "0x1f1f28"
-foreground = "0xdcd7ba"
-
-[colors.selection]
-background = "0x2d4f67"
-foreground = "0xc8c093"
+[scrolling]
+history = 10000
+multiplier = 3
 
 [font]
-size = 9
+normal = { family = "Fira Code Nerd Font", style = "Regular" }
+bold = { family = "Fira Code Nerd Font", style = "Bold" }
+italic = { family = "Fira Code Nerd Font", style = "Italic" }
+bold_italic = { family = "Fira Code Nerd Font", style = "Bold Italic" }
+size = 9.75
 
-[font.bold]
-family = "Hack"
-style = "Bold"
+[cursor]
+style = { blinking = "Off", shape = "Block" }
+vi_mode_style = "None"
 
-[font.normal]
-family = "Hack"
-style = "Regular"
+[terminal]
+shell = { program = "/bin/zsh" }
+
+[keyboard]
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mode = "~Search"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "Space"
+mode = "Vi|~Search"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Escape"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "I"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Y"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Y"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Copy"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ToggleNormalSelection"
+key = "V"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ToggleLineSelection"
+key = "V"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleBlockSelection"
+key = "V"
+mode = "Vi|~Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Open"
+key = "Return"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "K"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "J"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "H"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "L"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Up"
+key = "Up"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Down"
+key = "Down"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Left"
+key = "Left"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Right"
+key = "Right"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "SemanticLeft"
+key = "B"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "SemanticRight"
+key = "W"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "SemanticRightEnd"
+key = "E"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "WordLeft"
+key = "B"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "WordRight"
+key = "W"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "WordRightEnd"
+key = "E"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SearchNext"
+key = "N"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "SearchPrevious"
+key = "N"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "SearchConfirm"
+key = "Return"
+mode = "Search|Vi"
+
+[[keyboard.bindings]]
+action = "SearchCancel"
+key = "Escape"
+mode = "Search"
+

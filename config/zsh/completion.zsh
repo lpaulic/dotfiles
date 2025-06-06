@@ -11,7 +11,7 @@ zstyle ':completion:*:kill:*' force-list always
 
 zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit && compinit -d $XDG_CONFIG_HOME/zsh/zcompdump
+autoload -Uz compinit && compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
 # load history completition
 # autoload -Uz history-beginning-search-menu

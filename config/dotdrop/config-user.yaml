@@ -1,0 +1,95 @@
+config:
+  backup: true
+  banner: false
+  create: true
+  dotpath: ~/.dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_gitconfig:
+    src: config/git/gitconfig
+    dst: ~/.gitconfig
+  d_git:
+    src: config/git
+    dst: ~/.config/git
+    upignore:
+    - '*/gitconfig'
+    instignore:
+    - '*/gitconfig'
+    cmpignore:
+    - '*/gitconfig'
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  f_starship.toml:
+    src: config/starship/starship.toml
+    dst: ~/.config/starship/starship.toml
+  f_zshrc:
+    src: config/zsh/zshrc
+    dst: ~/.zshrc
+  d_zsh:
+    src: config/zsh
+    dst: ~/.config/zsh
+    upignore:
+    - '*/zshrc'
+    instignore:
+    - '*/zshrc'
+    cmpignore:
+    - '*/zshrc'
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
+  d_swaync:
+    src: config/swaync
+    dst: ~/.config/swaync
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  f_tmux.conf:
+    src: config/tmux/tmux.conf
+    dst: ~/.config/tmux/tmux.conf
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  f_flameshot.ini:
+    src: config/flameshot/flameshot.ini
+    dst: ~/.config/flameshot/flameshot.ini
+  d_clipse:
+    src: config/clipse
+    dst: ~/.config/clipse
+  d_ranger:
+    src: config/ranger
+    dst: ~/.config/ranger
+  d_kanshi:
+    src: config/kanshi
+    dst: ~/.config/kanshi
+profiles:
+  common:
+    dotfiles:
+    - f_gitconfig
+    - d_git
+    - d_hypr
+    - f_starship.toml
+    - f_zshrc
+    - d_zsh
+    - d_alacritty
+    - d_waybar
+    - d_swaync
+    - d_rofi
+    - f_tmux.conf
+    - d_nvim
+    - f_flameshot.ini
+    - d_clipse
+    - d_ranger
+    - d_kanshi
+  ginkgo:
+    include:
+      - common
+  maple:
+    include:
+      - common
