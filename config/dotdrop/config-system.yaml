@@ -25,6 +25,7 @@ profiles:
     - f_grub
     - d_grub_themes
     - f_logind.conf
+  bonsai:
   ginkgo:
     include:
       - common
