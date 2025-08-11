@@ -87,6 +87,16 @@ profiles:
     - d_clipse
     - d_ranger
     - d_kanshi
+  bonsai:
+    dotfiles:
+      - f_gitconfig
+      - d_git
+      - f_starship.toml
+      - f_zshrc
+      - d_zsh
+      - f_tmux.conf
+      - d_nvim
+      - d_ranger
   ginkgo:
     include:
       - common

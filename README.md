@@ -3,6 +3,8 @@
 Example dotfiles that are managed by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
 ## Prerequisite
+  * base
+  * base-devel
   * dotdrop
   * wget
   * curl

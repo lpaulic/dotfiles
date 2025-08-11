@@ -10,6 +10,8 @@
 
 ### Error settings
 set -eo pipefail
+## Debugging purposes
+# set -x
 
 ### Trap Signals
 interrupt_trap() {
@@ -33,7 +35,7 @@ validate_host_name() {
     local host_name="${1}"
 
     # host_name must follow the template <string>-<last-4-digits-of-SN>
-    if [[ "${host_name}" =~ ^[^\s\\]+-[A-Z0-9]{4}$ ]]; then
+    if [[ "${host_name}" =~ ^[^-]+-[A-Z0-9]{4}$ ]]; then
         return 0
     else
         return 1
@@ -43,9 +45,18 @@ validate_host_name() {
 install_dotfiles() {
     local profile="${1}"
     local dotfiles_dir_path="${script_dir_path}/.."
- 
-    ${no_sudo} dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" install &>/dev/null || { return 1; } 
-    dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-system.yaml" install &>/dev/null || { return 1; } 
+    
+    if dotdrop -b -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" profiles | grep "${profile}"; then
+        ${no_sudo} dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" install &>/dev/null || { return 1; } 
+    else
+        echo "WARN: no files for profile '${profile}' for user configuratoin."
+    fi
+
+    if dotdrop -b -c "${dotfiles_dir_path}/config/dotdrop/config-system.yaml" profiles | grep "${profile}"; then
+        dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-system.yaml" install &>/dev/null || { return 1; } 
+    else
+        echo "WARN: no files for profile '${profile}' for system configuration."
+    fi
 
     return 0
 }
