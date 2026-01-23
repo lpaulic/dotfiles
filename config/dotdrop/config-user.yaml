@@ -103,3 +103,23 @@ profiles:
   maple:
     include:
       - common
+  daisy:
+      - f_gitconfig
+      - d_git
+      - f_starship.toml
+      - f_zshrc
+      - d_zsh
+      - d_alacritty
+      - d_waybar
+      - f_tmux.conf
+      - d_nvim
+  rose:
+      - f_gitconfig
+      - d_git
+      - f_starship.toml
+      - f_zshrc
+      - d_zsh
+      - d_alacritty
+      - d_waybar
+      - f_tmux.conf
+      - d_nvim
