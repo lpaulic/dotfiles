@@ -110,7 +110,6 @@ profiles:
       - f_zshrc
       - d_zsh
       - d_alacritty
-      - d_waybar
       - f_tmux.conf
       - d_nvim
   rose:
@@ -120,6 +119,5 @@ profiles:
       - f_zshrc
       - d_zsh
       - d_alacritty
-      - d_waybar
       - f_tmux.conf
       - d_nvim
