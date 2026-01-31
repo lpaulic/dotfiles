@@ -77,7 +77,6 @@ pacman_package_list=(
     "ttf-sourcecodepro-nerd"
     "ttf-font-awesome"
     "fzf"
-    "rofi"
     "grim"
     "less"
     "ripgrep"
@@ -85,7 +84,6 @@ pacman_package_list=(
     "plantuml"
     "nsxiv"
     "graphviz"
-    "lshw"
     "packagekit"
     "power-profiles-daemon"
     "cosmic-app-library"
@@ -118,4 +116,5 @@ yay_package_list=(
     "catppuccin-cursors-mocha"
     "otf-powerline-symbols-git"
     "ttf-devicons"
+    "clipse"
 )

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Clipse daemon
+Comment=Clipboard manager
+Exec=bash -c '~/.config/autostart/clipsed.sh'
+Icon=edit-paste
+Terminal=false
+Categories=Utility;
+X-COSMIC-Autostart=true

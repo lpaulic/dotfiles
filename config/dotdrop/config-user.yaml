@@ -68,6 +68,9 @@ dotfiles:
   d_kanshi:
     src: config/kanshi
     dst: ~/.config/kanshi
+  d_autostart:
+    src: config/autostart
+    dst: ~/.config/autostart
 profiles:
   common:
     dotfiles:
@@ -89,35 +92,43 @@ profiles:
     - d_kanshi
   bonsai:
     dotfiles:
-      - f_gitconfig
-      - d_git
-      - f_starship.toml
-      - f_zshrc
-      - d_zsh
-      - f_tmux.conf
-      - d_nvim
-      - d_ranger
+    - f_gitconfig
+    - d_git
+    - f_starship.toml
+    - f_zshrc
+    - d_zsh
+    - f_tmux.conf
+    - d_nvim
+    - d_ranger
   ginkgo:
     include:
-      - common
+    - common
   maple:
     include:
-      - common
+    - common
   daisy:
-      - f_gitconfig
-      - d_git
-      - f_starship.toml
-      - f_zshrc
-      - d_zsh
-      - d_alacritty
-      - f_tmux.conf
-      - d_nvim
+    dotfiles:
+    - f_gitconfig
+    - d_git
+    - f_starship.toml
+    - f_zshrc
+    - d_zsh
+    - d_alacritty
+    - d_waybar
+    - f_tmux.conf
+    - d_nvim
+    - d_clipse
+    - d_autostart
   rose:
-      - f_gitconfig
-      - d_git
-      - f_starship.toml
-      - f_zshrc
-      - d_zsh
-      - d_alacritty
-      - f_tmux.conf
-      - d_nvim
+    dotfiles:
+    - f_gitconfig
+    - d_git
+    - f_starship.toml
+    - f_zshrc
+    - d_zsh
+    - d_alacritty
+    - d_waybar
+    - f_tmux.conf
+    - d_nvim
+    - d_clipse
+    - d_autostart

@@ -10,7 +10,7 @@ export XDG_SESSION_TYPE=wayland
 #export XDG_CURRENT_DESKTOP=Hyprland
 
 # Nvidia specific stuff if nvidia is used
-if [[ $(lshw -C display 2>/dev/null | grep vendor) =~ Nvidia ]]; then
+if lspci -vnnn | perl -lne 'print if /^\d+\:.+(\[\S+\:\S+\])/' | grep -i '\[VGA controller\]' | grep -qi nvidia; then
     export LIBVA_DRIVER_NAME=nvidia
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
     export LIBVA_DRIVER_NAME=nvidia
