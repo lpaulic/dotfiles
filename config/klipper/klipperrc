@@ -1,0 +1,6 @@
+[General]
+IgnoreImages=false
+MaxClipItems=512
+SyncClipboards=true
+URLGrabberEnabled=true
+Version=6.3.6
