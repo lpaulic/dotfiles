@@ -1,0 +1,145 @@
+{
+    "packages": [
+        {
+            "name": "apt-file"
+        },
+        {
+            "name": "aptitude"
+        },
+        {
+            "name": "automake"
+        },
+        {
+            "name": "bash"
+        },
+        {
+            "name": "bridge-utils"
+        },
+        {
+            "name": "build-essential"
+        },
+        {
+            "name": "clang"
+        },
+        {
+            "name": "clang-tidy"
+        },
+        {
+            "name": "cmake"
+        },
+        {
+            "name": "cpu-checker"
+        },
+        {
+            "name": "curl"
+        },
+        {
+            "name": "docker.io"
+        },
+        {
+            "name": "dotdrop"
+        },
+        {
+            "name": "fastfetch"
+        },
+        {
+            "name": "firefox-esr"
+        },
+        {
+            "name": "fzf"
+        },
+        {
+            "name": "git"
+        },
+        {
+            "name": "libvirt-daemon-system"
+        },
+        {
+            "name": "libvirt-clients"
+        },
+        {
+            "name": "lua5.4"
+        },
+        {
+            "name": "luarocks"
+        },
+        {
+            "name": "make"
+        },
+        {
+            "name": "net-tools"
+        },
+        {
+            "name": "nodejs"
+        },
+        {
+            "name": "npm"
+        },
+        {
+            "name": "openssh-server"
+        },
+        {
+            "name": "pkg-config"
+        },
+        {
+            "name": "python3"
+        },
+        {
+            "name": "python3-pip"
+        },
+        {
+            "name": "python3-venv"
+        },
+        {
+            "name": "qemu-kvm"
+        },
+        {
+            "name": "qemu-system"
+        },
+        {
+            "name": "ripgrep"
+        },
+        {
+            "name": "shellcheck"
+        },
+        {
+            "name": "spice-vdagent"
+        },
+        {
+            "name": "tar"
+        },
+        {
+            "name": "tmux"
+        },
+        {
+            "name": "tree-sitter-cli"
+        },
+        {
+            "name": "thunderbird"
+        },
+        {
+            "name": "virtinst"
+        },
+        {
+            "name": "virt-manager"
+        },
+        {
+            "name": "virtiofsd"
+        },
+        {
+            "name": "wget"
+        },
+        {
+            "name": "zip"
+        }
+    ],
+    "from_sources": [
+        {
+            "name": "neovim",
+            "version": "v0.11.6",
+            "uri": "git@github.com:neovim/neovim.git",
+            "proto": "git",
+            "cmd": "sudo make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=/usr/local && sudo make install"
+        }
+    ]
+}

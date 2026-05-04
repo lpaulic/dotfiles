@@ -14,6 +14,7 @@ set -eo pipefail
 # set -x
 
 ### Trap Signals
+# shellcheck disable=SC2317
 interrupt_trap() {
     echo "INF: not cleaning successfull installs"
     return 0
@@ -23,31 +24,74 @@ trap interrupt_trap SIGINT
 
 ### Functions
 usage() {
-    echo "Usage: $0 [options] <argument>"
+    echo "Usage: $0 [options]"
     echo
     echo "Flags:"
     echo "  options             Optional flags. Must be one of:"
     echo "                      -h|--help"
-    echo "			-r|--rust: install rust packages"
 }
 
+# param[in] 1: host name retreived from HOSTNAME environemnt variable
 validate_host_name() {
     local host_name="${1}"
 
     # host_name must follow the template <string>-<last-4-digits-of-SN>
-    if [[ "${host_name}" =~ ^[^-]+-[A-Z0-9]{4}$ ]]; then
+    if [[ "${host_name}" =~ ^[^-]+-([A-Z0-9]{4}|vm)$ ]]; then
         return 0
     else
         return 1
     fi
 }
 
+# param[in] 1:  json array containing objects in form 
+#               '{ 
+#                   "name": string, 
+#                   "version": string, 
+#                   "uri": string, 
+#                   "proto": string, 
+#                   "cmd": string
+#               }'
+#               all objec keys are mandatory
+install_from_source() {
+    local src_name=""
+    local src_ver=""
+    local src_uri=""
+    local src_proto=""
+    local src_cmd=""
+
+    echo "${1}" | jq -c '.[]' | while IFS= read -r SRC; do
+        src_name="$(echo "$SRC" | jq -r '.name')"
+        src_ver="$(echo "$SRC" | jq -r '.version')"
+        src_uri="$(echo "$SRC" | jq -r '.uri')"
+        src_proto="$(echo "$SRC" | jq -r '.proto')"
+        src_cmd="$(echo "$SRC" | jq -r '.cmd')"
+  
+        echo "INF: Installing '$src_name' from source ..."
+        if [ "${src_proto^^}" != "GIT" ]; then
+            echo "WARN: Unsupported protocol: '${src_proto}', skipping ..."
+            continue
+        fi
+
+        if [ ! -d "/usr/local/src/$src_name" ]; then
+            echo "INF: Downloading '$src_name' ..."
+            ${NO_SUDO} git clone --depth 1 --branch "$src_ver" "$src_uri" "/tmp/$src_name" || { echo "WARN: Failed to download '$src_name', continuing ..."; continue; }
+            mv "/tmp/$src_name" /usr/local/src/ || { echo "WARN: Failed to move '$src_name' to '/usr/local/src/', continuing ..."; continue; }
+        fi
+    
+        cd "/usr/local/src/$src_name" || true
+
+        echo "Running '$src_cmd' for '$src_name' ..."
+        bash -c "${src_cmd}" || { echo "WARN: Failed to run '$src_cmd', continuing ..."; }
+        cd - || true
+    done
+}
+
 install_dotfiles() {
     local profile="${1}"
-    local dotfiles_dir_path="${script_dir_path}/.."
+    local dotfiles_dir_path="${SCRIPT_DIR_PATH}/.."
     
     if dotdrop -b -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" profiles | grep "${profile}"; then
-        ${no_sudo} dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" install &>/dev/null || { return 1; } 
+        ${NO_SUDO} dotdrop -b -f -p "${profile}" -c "${dotfiles_dir_path}/config/dotdrop/config-user.yaml" install &>/dev/null || { return 1; } 
     else
         echo "WARN: no files for profile '${profile}' for user configuratoin."
     fi
@@ -62,9 +106,7 @@ install_dotfiles() {
 }
 
 install_rust() { 
-	echo "INF: Installing Rust ..."
-    ${no_sudo} bash -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh" || { echo "ERR: Failed to install rust" ; return 1; }
-	echo "INF: Installed Rust"
+    ${NO_SUDO} bash -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh" || { echo "ERR: Failed to install rust" ; return 1; }
 
     return 0
 }
@@ -74,52 +116,42 @@ post_install() {
         grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null || echo "WRN: grub-mkconfig failed. Take a look."
     fi
 
+    ldconfig || { echo "WARN: Failed to update libraries. Take a look."; }
+    usermod -aG libvirt,kvm,docker "$SUDO_USER" || { echo "WARN: Failed to add '$SUDO_USER' to docker, kvm and libvirt. Take a look."; }
+    echo "vhost_net" | tee -a /etc/modules || { echo "WARN: Failed to enable KVM network kernel module loading. Take a look."; }
+    virsh net-start default || { echo "Failed to start default virtual network. Take a look."; }
+    virsh net-autostart default || { echo "Failed to set auto-start for default virtual network. Take a look."; }
+
     return 0
 }
 
 ### Script Sourcing
 
 ### Variables
-default_host=${HOSTNAME:-""}
-
-short_opts="hrn"
-long_opts="help,rust"
-script_dir_path="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-no_sudo="sudo -u ${SUDO_USER}"
-install_rust=false
-profile=""
-package_list=()
+SCRIPT_DIR_PATH="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+DEFAULT_HOST=${HOSTNAME:-""}
+SHORT_OPTS="h"
+NO_SUDO="sudo -u ${SUDO_USER}"
+PROFILE=""
+JSON_CONFIG_FILE_PATH=""
 
 ### Command Line Flags Parsing ###
-if ! TEMP=$(getopt -o "${short_opts}" -l "${long_opts}" -n "$0" -- "$@"); then
-    echo "ERR: Failed to parse arguments."
-    usage
-    exit 1
-fi
 
-eval set -- "$TEMP"
-while true; do
-    case "$1" in
-        -h|--help)
+while getopts "$SHORT_OPTS" OPT; do
+    case "$OPT" in
+        h)
             usage
             exit 0
             ;;
-        -r|--rust)
-            install_rust=true
-            shift 1
-            ;;
-        --)
-            shift
-            break
-            ;;
-        *)
-            echo "ERR: Unexpected option $1"
+        \?)
+            echo "ERR: Invalid option: -$OPTARG" >&2
             usage
             exit 1
             ;;
     esac
 done
 
+shift $((OPTIND - 1))
 
 ### Main Logic
 if [ "$(id -u)" != 0 ]; then
@@ -127,61 +159,50 @@ if [ "$(id -u)" != 0 ]; then
    exit 1
 fi
 
-if [ -z ${default_host} ]; then
+if [ -z "$DEFAULT_HOST" ]; then
     echo "ERR: The HOST environemnt variable must be set"
     exit 1
 fi
 
-if ! validate_host_name ${default_host}; then
+if ! validate_host_name "$DEFAULT_HOST"; then
     echo "ERR: The HOST doesn't follow the required template"
     exit 2
 fi
 
-profile="${default_host%-*}"
-if ! ls -1 ${script_dir_path}/configurations | grep -q "${profile}".sh ; then
-    echo "ERR: No configuration for profile '${profile}'"
+PROFILE="${DEFAULT_HOST%-*}"
+if ! find "${SCRIPT_DIR_PATH}/configurations" -name "${PROFILE}.json"; then
+    echo "ERR: No configuration for profile '$PROFILE'"
     exit 3
 fi
 
-# imports <package-manager>_package_list variable
-source ${script_dir_path}/configurations/${profile}.sh 
+JSON_CONFIG_FILE_PATH="${SCRIPT_DIR_PATH}/configurations/${PROFILE}.json"
 
 # System packages
 if which apt-get &>/dev/null; then
-    source ${script_dir_path}/package-manager/apt.sh
-    package_list=("${apt_package_list[@]}")
-elif which pacman &>/dev/null; then
-    source ${script_dir_path}/package-manager/pacman-yay.sh
-    package_list=("${pacman_package_list[@]}")
-    secondary_package_list=("${yay_package_list[@]}")
+    source "${SCRIPT_DIR_PATH}/package-manager/apt.sh"
 else
     echo "ERR: No supported package manager"
     exit 1
 fi
 
 echo "INF: Installing system packages ..."
-# passing array by name
-package_manager_install_packages package_list || { echo "ERR: failed to install packages" ; exit 1; }
+package_manager_install_packages "$(jq '.packages' "$JSON_CONFIG_FILE_PATH")" || { echo "ERR: failed to install packages" ; exit 1; }
 echo "INF: System packages installed"
 
-if declare -F "secondary_package_manager_install_packages" &>/dev/null; then 
-    echo "INF: Installing secundary packages ..."
-    # passing array by name
-    secondary_package_manager_install_packages secondary_package_list || { echo "ERR: failed to install secondary packages" ; exit 1; }
-    echo "INF: Secondary packages installed."
-fi
+# From source
+echo "INF: Installing packages from source ..."
+install_from_source "$(jq '.from_sources' "$JSON_CONFIG_FILE_PATH")" || { echo "ERR: Failed to install packages from source" ; exit 1; }
+echo "INF: Installed packages from source"
+
+# Rust
+echo "INF: Installing Rust ..."
+install_rust || { echo "ERR: failed to install rust" ; exit 1; }
+echo "INF: Rust installed"
 
 # Dotfiles
 echo "INF: Installing dotdrop configurations ..."
-install_dotfiles "${profile}" || { echo "ERR: faild to install dotconf files" ; exit 1; }
+install_dotfiles "${PROFILE}" || { echo "ERR: faild to install dotconf files" ; exit 1; }
 echo "INF: Dotdrop configurations installed"
-
-# Rust
-if ${install_rust}; then
-    echo "INF: Installing Rust ..."
-    install_rust_packages || { echo "ERR: failed to install rust" ; exit 1; }
-    echo "INF: Rust installed"
-fi
 
 # Post-install runs
 echo "INF: Running post install commands ..."

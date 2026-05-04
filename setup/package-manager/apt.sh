@@ -1,22 +1,23 @@
+# param[in] 1:  json list containing objects 
+#               '{
+#                   "name": string, 
+#                   "version": string
+#               }'
+#               where the "version" key is optional
 package_manager_install_packages() {
-    local -n apt_packages="${1}"
-    local apt_experimental_file="/etc/apt/sources.list.d/experimental.list"
-    local apt_opts=""
-
-    touch "${apt_experimental_file}" || true
-    if ! grep -q 'experimental' "${apt_experimental_file}"; then 
-        echo 'deb https://deb.debian.org/debian experimental main' > "${apt_experimental_file}"
-    fi
+    local pkg_name=""
 
     echo "INF: updating package repositories ..."
     apt-get -y update &> /dev/null || { echo "ERR: Failed to update package repositories" ; return 1; }
-    apt-get -y install aptitude &> /dev/null || return 1; 
-    for package in "${apt_packages[@]}"; do
-        echo "INF: Installing ${package} ..."
-        if aptitude -y install "${package}" &> /dev/null; then
-            echo "INF: Successfully installed ${package}"
+    
+    echo "${1}" | jq -c '.[]' | while IFS= read -r PACKAGE; do
+        pkg_name="$(echo "$PACKAGE" | jq -r ".name")"
+
+        echo "INF: Installing '$pkg_name' ..."
+        if apt-get -y install "$pkg_name" &> /dev/null; then
+            echo "INF: Successfully installed $pkg_name"
         else
-            echo "WARN: Failed to install ${package}. Please install manually." 
+            echo "WARN: Failed to install $pkg_name. Please install manually." 
         fi
     done
 

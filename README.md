@@ -3,25 +3,28 @@
 Example dotfiles that are managed by [dotdrop](https://github.com/deadc0de6/dotdrop).
 
 ## Prerequisite
-  * base
-  * base-devel
-  * dotdrop
-  * wget
-  * curl
-  * bash
-  * getopt
-  * unzip
+
+- base
+- base-devel
+- dotdrop
+- wget
+- curl
+- bash
+- getopt
+- unzip
+- jq
 
 ## Usage
-* clone this repository to `${HOME}/.dotfiles`
+
+- clone this repository to `${HOME}/.dotfiles`
 ```
 git clone git@github.com:lpaulic/dotfiles.git ${HOME}/.dotfiles
 ```
-* bootstarp
+- bootstarp
 ```
 sudo <path-to-this-repo>/setup/setup.sh [--rust] [--nvm]
 ```
-* every day use
+- every day use
 ```
 # edit files in this repository
 git pull
@@ -34,8 +37,10 @@ dotsync
 ```
 
 ## Profile names
+
 The proces of creating and using the dotdrop profile names are 
 related to host name as follows:
+
 - The host name follows the format: `<profile-name>-<machine-sn-last-4-characters>`
     - `<profile-name>` - stirng of user chosing, usually follows 
     a [naming scheme](https://namingschemes.com/Main_Page). Personally
@@ -57,6 +62,7 @@ to find the appropriate predefined package list.
 If you want to use the script and use your custom `<profile-name>`
 that is not mentioned in the `dotfiles/setup/configurations/` 
 directory, do the following:
+
 1. Create a scrpit named `<custom-profile-name>.sh`
 2. Create a variable named `<system-pacakage-manager>_package_list`
 and populate it with aplications that you want or copy from 
