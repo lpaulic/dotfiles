@@ -1,5 +1,4 @@
--- lua modules; order is important
-require("user.options")
-require("user.keymaps")
-require("user.package-manager")
-require("user.colorscheme")
+require('config.options')
+require('config.keybinds')
+require('config.lazy')
+require('config.lsp')
