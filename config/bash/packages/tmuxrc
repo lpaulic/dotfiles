@@ -1,0 +1,6 @@
+### Environment Variables
+
+### Aliases
+
+alias tmux="TERM=xterm-direct tmux"
+

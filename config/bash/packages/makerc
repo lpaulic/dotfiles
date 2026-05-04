@@ -1,0 +1,6 @@
+### Environment Variables
+
+### Aliases
+
+alias make="make --no-print-directory" 
+
