@@ -1,0 +1,6 @@
+### Environment Variables
+
+### Aliases
+
+alias valgrind-leak="valgrind --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --read-var-info=yes --child-silent-after-fork=yes"
+

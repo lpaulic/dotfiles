@@ -20,115 +20,113 @@ dotfiles:
     - '*/gitconfig'
     cmpignore:
     - '*/gitconfig'
-  d_hypr:
-    src: config/hypr
-    dst: ~/.config/hypr
-  f_starship.toml:
-    src: config/starship/starship.toml
-    dst: ~/.config/starship/starship.toml
-  f_zshrc:
-    src: config/zsh/zshrc
-    dst: ~/.zshrc
-  d_zsh:
-    src: config/zsh
-    dst: ~/.config/zsh
+  f_bashrc:
+    src: config/bash/bashrc
+    dst: ~/.bashrc
+  f_bash_profile:
+    src: config/bash/bash_profile
+    dst: ~/.bash_profile
+  d_bash:
+    src: config/bash
+    dst: ~/.config/bash
     upignore:
-    - '*/zshrc'
+    - '*/bashrc'
+    - '*/omb-bashrc'
+    - '*/bash_profile'
+    - '*/share/*'
     instignore:
-    - '*/zshrc'
+    - '*/bashrc'
+    - '*/omb-bashrc'
+    - '*/bash_profile'
+    - '*/share/*'
     cmpignore:
-    - '*/zshrc'
-  d_alacritty:
-    src: config/alacritty
-    dst: ~/.config/alacritty
-  d_waybar:
-    src: config/waybar
-    dst: ~/.config/waybar
-  d_swaync:
-    src: config/swaync
-    dst: ~/.config/swaync
-  d_rofi:
-    src: config/rofi
-    dst: ~/.config/rofi
+    - '*/bashrc'
+    - '*/omb-bashrc'
+    - '*/bash_profile'
+    - '*/share/*'
+  f_omb_bashrc:
+    src: config/bash/omb-bashrc
+    dst: ~/.config/bash/share/oh-my-bash/bashrc
   f_tmux.conf:
     src: config/tmux/tmux.conf
     dst: ~/.config/tmux/tmux.conf
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  f_flameshot.ini:
-    src: config/flameshot/flameshot.ini
-    dst: ~/.config/flameshot/flameshot.ini
-  d_clipse:
-    src: config/clipse
-    dst: ~/.config/clipse
-  d_ranger:
-    src: config/ranger
-    dst: ~/.config/ranger
-  d_kanshi:
-    src: config/kanshi
-    dst: ~/.config/kanshi
-  d_autostart:
-    src: config/autostart
-    dst: ~/.config/autostart
+  f_klipperrc:
+    src: config/klipper/klipperrc
+    dst: ~/.config/klipperrc
+    chmod: '600'
+  d_konsole:
+    src: config/konsole
+    dst: ~/.local/share/konsole
+    upignore:
+    - '*/konsolerc'
+    instignore:
+    - '*/konsolerc'
+    cmpignore:
+    - '*/konsolerc'
+  f_konsolerc:
+    src: config/konsole/konsolerc
+    dst: ~/.config/konsolerc
+  f_kdeglobals:
+    src: config/kdeglobals
+    dst: ~/.config/kdeglobals
+    chmod: '600'
+  f_plasmarc:
+    src: config/plasmarc
+    dst: ~/.config/plasmarc
+    chmod: '600'
+  f_plasmashellrc:
+    src: config/plasmashellrc
+    dst: ~/.config/plasmashellrc
+    chmod: '600'
+  f_kglobalshortcutsrc:
+    src: config/kglobalshortcutsrc
+    dst: ~/.config/kglobalshortcutsrc
+    chmod: '600'
+  f_settings.ini:
+    src: config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+    chmod: '600'
+  f_gtk-4.0_settings.ini:
+    src: config/gtk-4.0/settings.ini
+    dst: ~/.config/gtk-4.0/settings.ini
+    chmod: '600'
+  d_plasma_desktoptheme:
+    src: config/plasma/desktoptheme
+    dst: ~/.local/share/plasma/desktoptheme
+  d_color_schemes:
+    src: config/color-schemes
+    dst: ~/.local/share/color-schemes
+  d_aurorae_themes:
+    src: config/aurorae/themes
+    dst: ~/.local/share/aurorae/themes
+  f_kwinrc:
+    src: config/kwinrc
+    dst: ~/.config/kwinrc
+    chmod: '600'
 profiles:
-  common:
+  debian:
     dotfiles:
     - f_gitconfig
     - d_git
-    - d_hypr
-    - f_starship.toml
-    - f_zshrc
-    - d_zsh
-    - d_alacritty
-    - d_waybar
-    - d_swaync
-    - d_rofi
+    - f_bashrc
+    - f_bash_profile
+    - d_bash
+    - f_omb_bashrc
     - f_tmux.conf
     - d_nvim
-    - f_flameshot.ini
-    - d_clipse
-    - d_ranger
-    - d_kanshi
-  bonsai:
-    dotfiles:
-    - f_gitconfig
-    - d_git
-    - f_starship.toml
-    - f_zshrc
-    - d_zsh
-    - f_tmux.conf
-    - d_nvim
-    - d_ranger
-  ginkgo:
-    include:
-    - common
-  maple:
-    include:
-    - common
-  daisy:
-    dotfiles:
-    - f_gitconfig
-    - d_git
-    - f_starship.toml
-    - f_zshrc
-    - d_zsh
-    - d_alacritty
-    - d_waybar
-    - f_tmux.conf
-    - d_nvim
-    - d_clipse
-    - d_autostart
-  rose:
-    dotfiles:
-    - f_gitconfig
-    - d_git
-    - f_starship.toml
-    - f_zshrc
-    - d_zsh
-    - d_alacritty
-    - d_waybar
-    - f_tmux.conf
-    - d_nvim
-    - d_clipse
-    - d_autostart
+    - f_klipperrc
+    - d_konsole
+    - f_konsolerc
+    - f_kdeglobals
+    - f_plasmarc
+    - f_plasmashellrc
+    - f_kglobalshortcutsrc
+    - f_settings.ini
+    - f_gtk-4.0_settings.ini
+    - d_plasma_desktoptheme
+    - d_color_schemes
+    - d_aurorae_themes
+    - f_kwinrc

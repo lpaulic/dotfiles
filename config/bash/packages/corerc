@@ -1,0 +1,10 @@
+### Environemnt Variables
+
+if which nvim &>/dev/null; then
+    export EDITOR="nvim"
+else
+    export EDITOR="vi"
+fi
+
+### Aliases
+

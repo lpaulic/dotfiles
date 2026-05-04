@@ -1,0 +1,17 @@
+# Bash Profile script
+#
+
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    elif [ -f "$HOME/.config/bash/fallback-bashrc" ]; then
+	. "$HOME/.config/bash/fallback-bashrc"
+    else
+        RED='\033[0;31m'
+	NC='\033[0m'
+        echo "${RED}$0: No availabe run commands, manual intervention needed.${NC}"
+    fi
+else
+    echo "$0: Not running bash, nothing to do."
+fi
+

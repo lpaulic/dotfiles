@@ -1,0 +1,87 @@
+# Bash Run Commands
+
+### Functions
+
+## @fn _color_setup
+##     @var[out] RED
+##     @var[out] GREEN
+##     @var[out] YELLOW
+##     @var[out] BLUE
+##     @var[out] BOLD
+##     @var[out] NC
+function _color_setup {
+    if [[ -t 1 && $ncolors && $ncolors -ge 8 ]]; then
+        RED=$(tput setaf 1 2>/dev/null || tput AF 1 2>/dev/null)
+        GREEN=$(tput setaf 2 2>/dev/null || tput AF 2 2>/dev/null)
+        YELLOW=$(tput setaf 3 2>/dev/null || tput AF 3 2>/dev/null)
+        BLUE=$(tput setaf 4 2>/dev/null || tput AF 4 2>/dev/null)
+        BOLD=$(tput bold 2>/dev/null || tput md 2>/dev/null)
+        NC=$(tput sgr0 2>/dev/null || tput me 2>/dev/null)
+  fi
+}
+
+### Variables
+RED=""
+GREEN=""
+YELLOW=""
+BLUE=""
+BOLD=""
+NC=""
+BASH_CFG_DIR_PATH="$HOME/.config/bash"
+SHARE_DIR_PATH="$BASH_CFG_DIR_PATH/share"
+FALLBACK_RC_FILE_PATH="$BASH_CFG_DIR_PATH/fallback-bashrc"
+PACKAGE_RC_DIR_PATH="$BASH_CFG_DIR_PATH/packages"
+OMB_URL="https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
+OMB_DIR_PATH="$BASH_CFG_DIR_PATH/share/oh-my-bash"
+OMB_INSTALL_FILE_PATH="$BASH_CFG_DIR_PATH/share/omb-install.sh"
+OMB_RC_FILE_PATH="$OMB_DIR_PATH/bashrc"
+OMB_RC_BAK_FILE_PATH="/tmp/omb-bashrc.bak.$(date +%Y%m%dT%H%M)"
+
+# Setup directories
+
+mkdir -p "$SHARE_DIR_PATH" || true
+
+# Setup oh-my-bash
+
+if ([ ! -d "$OMB_DIR_PATH" ] || [ -z "$(ls -A $OMB_DIR_PATH)" ]) ||
+   ([ $(ls -A "$OMB_DIR_PATH" | wc -l) -eq 1 ] && [ -f "$OMB_RC_FILE_PATH" ]); then
+    if [ -f "$OMB_RC_FILE_PATH" ]; then
+        mv "$OMB_RC_FILE_PATH" "$OMB_RC_BAK_FILE_PATH" || true
+    fi
+
+    if curl -o "$OMB_INSTALL_FILE_PATH" -fsSL "$OMB_URL"; then
+	chmod +x "$OMB_INSTALL_FILE_PATH"
+	if ! bash -c "$OMB_INSTALL_FILE_PATH --prefix=$BASH_CFG_DIR_PATH"; then
+	    echo "${RED}Faild to setup oh-my-bash, falling back to default.${NC}"
+	fi
+
+	if [ -f "$OMB_RC_BAK_FILE_PATH" ]; then
+	    mv "$OMB_RC_BAK_FILE_PATH" "$OMB_RC_FILE_PATH" || true
+	fi
+    else
+        echo "${RED}Failed to download $OMB_INSTALL_FILE_PATH, falling back to default.${NC}"
+    fi
+fi
+
+# Source oh-my-bash
+
+if [ -f "$OMB_RC_FILE_PATH" ]; then
+    . "$OMB_RC_FILE_PATH"
+elif [ -f "$FALLBACK_RC_FILE_PATH" ]; then
+    echo "Using fallback '$FALLBACK_RC_FILE_PATH'"
+    . "$FALLBACK_RC_FILE_PATH"
+else
+   echo "${RED}Fallback '$FALLBACK_RC_FILE_PATH' missing, intervention needed.${NC}"
+   exit 1
+fi
+
+# Source pacakge run commands
+
+if [ -d "$PACKAGE_RC_DIR_PATH" ]; then
+    for pkg_rc in $(find "$PACKAGE_RC_DIR_PATH" -type f -name "*rc"); do
+        if ! . "$pkg_rc"; then
+            echo "${RED}Failed to source '$pkg_rc'.${NC}"
+        fi
+    done
+fi
+
