@@ -26,6 +26,7 @@ dotfiles:
   f_bash_profile:
     src: config/bash/bash_profile
     dst: ~/.bash_profile
+    chmod: '644'
   d_bash:
     src: config/bash
     dst: ~/.config/bash
@@ -47,6 +48,7 @@ dotfiles:
   f_omb_bashrc:
     src: config/bash/omb-bashrc
     dst: ~/.config/bash/share/oh-my-bash/bashrc
+    chmod: '644'
   f_tmux.conf:
     src: config/tmux/tmux.conf
     dst: ~/.config/tmux/tmux.conf

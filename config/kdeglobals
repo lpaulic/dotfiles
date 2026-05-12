@@ -138,7 +138,7 @@ History Items[$e]=file:$HOME/.config/nvim
 Splitter State=\x00\x00\x00\xff\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\x8c\x00\x00\x02\xa8\x00\xff\xff\xff\xff\x01\x00\x00\x00\x01\x00
 
 [General]
-ColorSchemeHash=d05680ca25bbbbf09a8b5f36923ee7f2b1117fbf
+ColorSchemeHash=b97562e9308a74623cceab30d237ce2d67fb72a8
 
 [KDE]
 LookAndFeelPackage=com.github.Jayy-Dev.Plasma.Tokyo.Night
