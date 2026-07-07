@@ -2,9 +2,12 @@
 
 ### Metadata
 # Description: Script for setting up dotfiles.
-# The script utilizes the HOSTNAME and extracts 
-# the profile and matches it with the proflie 
-# in dotdrop configuration. The script figures
+# The script by default utilizes the HOSTNAME
+# and extracts the profile and matches 
+# it with the proflie in dotdrop configuration. 
+# The profile name can be specified optionally as 
+# an argument.
+# The script figures
 # out the package manager on the system. Not 
 # all package mangers are supported.
 
@@ -24,11 +27,15 @@ trap interrupt_trap SIGINT
 
 ### Functions
 usage() {
-    echo "Usage: $0 [options]"
+    echo "Usage: $0 [options] [profile-name]"
     echo
     echo "Flags:"
     echo "  options             Optional flags. Must be one of:"
     echo "                      -h|--help"
+    echo "Arguments:"
+    echo "  profile-name        Optional arguments. Will be used to match"
+    echo "			package list and dotfile profiles."
+
 }
 
 # param[in] 1: host name retreived from HOSTNAME environemnt variable
@@ -116,11 +123,17 @@ post_install() {
         grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null || echo "WRN: grub-mkconfig failed. Take a look."
     fi
 
-    ldconfig || { echo "WARN: Failed to update libraries. Take a look."; }
-    usermod -aG libvirt,kvm,docker "$SUDO_USER" || { echo "WARN: Failed to add '$SUDO_USER' to docker, kvm and libvirt. Take a look."; }
-    echo "vhost_net" | tee -a /etc/modules || { echo "WARN: Failed to enable KVM network kernel module loading. Take a look."; }
-    virsh net-start default || { echo "Failed to start default virtual network. Take a look."; }
-    virsh net-autostart default || { echo "Failed to set auto-start for default virtual network. Take a look."; }
+    if which ldconfig &>/dev/null; then
+        ldconfig || { echo "WARN: Failed to update libraries. Take a look."; }
+    fi
+    if which usermod &>/dev/null; then
+        usermod -aG libvirt,kvm,docker "$SUDO_USER" || { echo "WARN: Failed to add '$SUDO_USER' to docker, kvm and libvirt. Take a look."; }
+    fi
+    if which virsh &>/dev/null; then
+        echo "vhost_net" | tee -a /etc/modules || { echo "WARN: Failed to enable KVM network kernel module loading. Take a look."; }
+        virsh net-start default || { echo "Failed to start default virtual network. Take a look."; }
+        virsh net-autostart default || { echo "Failed to set auto-start for default virtual network. Take a look."; }
+    fi
 
     return 0
 }
@@ -153,23 +166,32 @@ done
 
 shift $((OPTIND - 1))
 
+### Argument parsing
+
+if [ -n "${1}" ]; then
+    PROFILE="${1}"
+fi
+
 ### Main Logic
 if [ "$(id -u)" != 0 ]; then
    echo "ERR: The script must be run as root."
    exit 1
 fi
 
-if [ -z "$DEFAULT_HOST" ]; then
-    echo "ERR: The HOST environemnt variable must be set"
-    exit 1
-fi
+if [ -z "${PROFILE}" ]; then
+    if [ -z "$DEFAULT_HOST" ]; then
+        echo "ERR: The HOST environemnt variable must be set"
+        exit 1
+    fi
 
-if ! validate_host_name "$DEFAULT_HOST"; then
-    echo "ERR: The HOST doesn't follow the required template"
-    exit 2
-fi
+    if ! validate_host_name "$DEFAULT_HOST"; then
+        echo "ERR: The HOST doesn't follow the required template"
+        exit 2
+    fi
 
-PROFILE="${DEFAULT_HOST%-*}"
+    PROFILE="${DEFAULT_HOST%-*}"
+fi 
+
 if ! find "${SCRIPT_DIR_PATH}/configurations" -name "${PROFILE}.json"; then
     echo "ERR: No configuration for profile '$PROFILE'"
     exit 3
@@ -180,6 +202,8 @@ JSON_CONFIG_FILE_PATH="${SCRIPT_DIR_PATH}/configurations/${PROFILE}.json"
 # System packages
 if which apt-get &>/dev/null; then
     source "${SCRIPT_DIR_PATH}/package-manager/apt.sh"
+elif which brew &>/dev/null; then
+    source "$SCRIPT_DIR_PATH/package-manager/brew.sh"
 else
     echo "ERR: No supported package manager"
     exit 1

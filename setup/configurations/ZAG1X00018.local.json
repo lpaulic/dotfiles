@@ -1,0 +1,134 @@
+{
+    "packages": [
+        {
+            "name": "automake"
+        },
+        {
+            "name": "bash"
+        },
+        {
+            "name": "llvm"
+        },
+        {
+            "name": "clang-format"
+        },
+        {
+            "name": "cmake"
+        },
+        {
+            "name": "curl"
+        },
+        {
+            "name": "docker"
+        },
+        {
+            "name": "dotdrop"
+        },
+        {
+            "name": "fastfetch"
+        },
+        {
+            "name": "firefox"
+        },
+        {
+            "name": "fontconfig"
+        },
+        {
+            "name": "font-monaspace-nerd-font"
+        },
+        {
+            "name": "font-noto-sans-symbols-2"
+        },
+        {
+            "name": "maccy"
+        },
+        {
+            "name": "bc"
+        },
+        {
+            "name": "coreutils"
+        },
+        {
+            "name": "gawk"
+        },
+        {
+            "name": "gh"
+        },
+        {
+            "name": "glab"
+        },
+        {
+            "name": "gsed"
+        },
+        {
+            "name": "nowplaying-cli"
+        },
+        {
+            "name": "font-jetbrains-mono-nerd-font"
+        },
+        {
+            "name": "font-caskaydia-cove-nerd-font"
+        },
+        {
+            "name": "font-iosevka-term-nerd-font"
+        },
+        {
+            "name": "font-fira-mono-nerd-font"
+        },
+        {
+            "name": "fzf"
+        },
+        {
+            "name": "git"
+        },
+        {
+            "name": "ghostty"
+        },
+        {
+            "name": "jq"
+        },
+        {
+            "name": "lua@5.4"
+        },
+        {
+            "name": "luarocks"
+        },
+        {
+            "name": "make"
+        },
+        {
+            "name": "npm"
+        },
+        {
+            "name": "neovim"
+        },
+        {
+            "name": "net-tools"
+        },
+        {
+            "name": "python"
+        },
+        {
+            "name": "ripgrep"
+        },
+        {
+            "name": "shellcheck"
+        },
+        {
+            "name": "tar"
+        },
+        {
+            "name": "tmux"
+        },
+        {
+            "name": "tree-sitter-cli"
+        },
+        {
+            "name": "wget"
+        },
+        {
+            "name": "zip"
+        }
+    ],
+    "from_sources": []
+}

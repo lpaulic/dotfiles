@@ -4,8 +4,21 @@ Example dotfiles that are managed by [dotdrop](https://github.com/deadc0de6/dotd
 
 ## Prerequisite
 
+Linux:
+
 - base
 - base-devel
+- dotdrop
+- wget
+- curl
+- bash
+- getopt
+- unzip
+- jq
+
+MacOS:
+
+- brew
 - dotdrop
 - wget
 - curl
@@ -17,14 +30,19 @@ Example dotfiles that are managed by [dotdrop](https://github.com/deadc0de6/dotd
 ## Usage
 
 - clone this repository to `${HOME}/.dotfiles`
+
 ```
 git clone git@github.com:lpaulic/dotfiles.git ${HOME}/.dotfiles
 ```
+
 - bootstarp
+
 ```
-sudo <path-to-this-repo>/setup/setup.sh [--rust] [--nvm]
+sudo <path-to-this-repo>/setup/setup.sh [<profile-name>]
 ```
+
 - every day use
+
 ```
 # edit files in this repository
 git pull
@@ -38,7 +56,7 @@ dotsync
 
 ## Profile names
 
-The proces of creating and using the dotdrop profile names are 
+The default proces of creating and using the dotdrop profile names are 
 related to host name as follows:
 
 - The host name follows the format: `<profile-name>-<machine-sn-last-4-characters>`
@@ -58,6 +76,11 @@ will have the same `<profile-name>` but different `<machine-sn-last-4-characters
 For the setup script from this repository to work the host name must 
 follow the above mentioned rule. The `<profile-name>` is used 
 to find the appropriate predefined package list.
+
+If a specific `<profile-name>` is specified as an optional argument to the 
+setup script, it will be used instead of the default profile name and the 
+rules for default profile name. If the `<profile-name>` is not found 
+for the package list or dotfiles the script will fail.
 
 If you want to use the script and use your custom `<profile-name>`
 that is not mentioned in the `dotfiles/setup/configurations/` 

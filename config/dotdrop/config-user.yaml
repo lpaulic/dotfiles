@@ -16,10 +16,13 @@ dotfiles:
     dst: ~/.config/git
     upignore:
     - '*/gitconfig'
+    - '*/*.custom'
     instignore:
     - '*/gitconfig'
+    - '*/*.custom'
     cmpignore:
     - '*/gitconfig'
+    - '*/*.custom'
   f_bashrc:
     src: config/bash/bashrc
     dst: ~/.bashrc
@@ -108,6 +111,9 @@ dotfiles:
     src: config/kwinrc
     dst: ~/.config/kwinrc
     chmod: '600'
+  d_ghostty:
+    src: config/ghostty
+    dst: ~/.config/ghostty
 profiles:
   debian:
     dotfiles:
@@ -132,3 +138,14 @@ profiles:
     - d_color_schemes
     - d_aurorae_themes
     - f_kwinrc
+  ZAG1X00018.local:
+    dotfiles:
+    - f_gitconfig
+    - d_git
+    - f_bashrc
+    - f_bash_profile
+    - d_bash
+    - f_omb_bashrc
+    - f_tmux.conf
+    - d_nvim
+    - d_ghostty
