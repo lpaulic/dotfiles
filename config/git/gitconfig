@@ -1,4 +1,5 @@
 [user]
-    name = Luka Paulić
+	name = Luka Paulić
 [include]
     path = ~/.config/git/gitconfig.common
+    path = ~/.config/git/gitconfig.custom
