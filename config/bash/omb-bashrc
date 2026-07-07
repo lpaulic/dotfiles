@@ -5,11 +5,11 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/home/lpaulic/.config/bash/share/oh-my-bash'
+export OSH="$HOME/.config/bash/share/oh-my-bash"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="developer"
+OSH_THEME="powerbash10k"
 
 # If you set OSH_THEME to "random", you can ignore themes you don't like.
 # OMB_THEME_RANDOM_IGNORED=("powerbash10k" "wanelo")
@@ -90,8 +90,10 @@ OMB_USE_SUDO=true
 # Example format: completions=(ssh git bundler gem pip pip3)
 # Add wisely, as too many completions slow down shell startup.
 completions=(
+  brew
   composer
   defaults
+  docker
   git
   pip3
   ssh
@@ -111,6 +113,7 @@ aliases=(
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  brew
   cargo
   fzf
   git
