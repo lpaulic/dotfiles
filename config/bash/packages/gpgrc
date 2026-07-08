@@ -1,0 +1,8 @@
+### Environemnt Variables
+
+if which gpg &>/dev/null && which tty &>/dev/null; then
+    export GPG_TTY=$(tty)
+fi
+
+### Aliases
+
