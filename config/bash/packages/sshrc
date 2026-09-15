@@ -1,0 +1,17 @@
+### Environment Variables
+
+SSH_AGENT=$(command -v ssh-agent)
+if [ -n "${SSH_AGENT}" ]; then
+    SSH_AGENT_DIR="${HOME}/.ssh/agent"
+    SSH_AGENT_SOCK="${SSH_AGENT_DIR}/default.sock"
+
+    mkdir -p "${SSH_AGENT_DIR}"
+    export SSH_AUTH_SOCK="${SSH_AGENT_SOCK}"
+
+    if ! pgrep ssh-agent &> /dev/null; then
+        eval "$("$SSH_AGENT" -a "${SSH_AGENT_SOCK}" -s)" >/dev/null
+    fi
+fi
+
+### Aliases
+

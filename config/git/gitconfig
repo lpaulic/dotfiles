@@ -3,3 +3,5 @@
 [include]
     path = ~/.config/git/gitconfig.common
     path = ~/.config/git/gitconfig.custom
+[core]
+	pager = cat

@@ -1,0 +1,8 @@
+### Environment Variables
+
+if [ -d "${HOME}/.devcontainers" ]; then
+    export PATH="${HOME}/.devcontainers/bin:$PATH"
+fi
+
+### Aliases
+
