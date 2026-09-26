@@ -1,0 +1,7 @@
+### Environemnt Variables
+
+if [ -d "$HOME/.docker/" ]; then
+    export PATH="$PATH:$HOME/.docker/bin"
+fi
+
+### Aliases
