@@ -43,7 +43,7 @@ validate_host_name() {
     local host_name="${1}"
 
     # host_name must follow the template <string>-<last-4-digits-of-SN>
-    if [[ "${host_name}" =~ ^[^-]+-([A-Z0-9]{4}|vm)$ ]]; then
+    if [[ "${host_name}" =~ ^[^-]+-([A-Z0-9]{4}|[A-Z0-9]{10}|vm)$ ]]; then
         return 0
     else
         return 1

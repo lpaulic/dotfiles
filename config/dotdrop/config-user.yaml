@@ -111,9 +111,6 @@ dotfiles:
     src: config/kwinrc
     dst: ~/.config/kwinrc
     chmod: '600'
-  d_ghostty:
-    src: config/ghostty
-    dst: ~/.config/ghostty
 profiles:
   debian:
     dotfiles:
@@ -138,7 +135,7 @@ profiles:
     - d_color_schemes
     - d_aurorae_themes
     - f_kwinrc
-  ZAG1X00018.local:
+  MacOS:
     dotfiles:
     - f_gitconfig
     - d_git
@@ -148,4 +145,3 @@ profiles:
     - f_omb_bashrc
     - f_tmux.conf
     - d_nvim
-    - d_ghostty

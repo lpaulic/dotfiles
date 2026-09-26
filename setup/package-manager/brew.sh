@@ -14,10 +14,15 @@ package_manager_install_packages() {
         pkg_name="$(echo "$PACKAGE" | jq -r ".name")"
 
         echo "INF: Installing '$pkg_name' ..."
-        if ${NO_SUDO} brew install -y --cask "$pkg_name" &> /dev/null; then
+        if ${NO_SUDO} brew install -y "$pkg_name" &> /dev/null; then
             echo "INF: Successfully installed $pkg_name"
         else
-            echo "WARN: Failed to install $pkg_name. Please install manually." 
+	    echo "WARN: Faild installation from tap, trying cask ..."
+	    if ${NO_SUDO} brew install -y --cask "$pkg_name" &> /dev/null; then
+                echo "INF: Successfully installed from cask $pkg_name"
+            else 
+                echo "WARN: Failed to install $pkg_name. Please install manually." 
+	    fi
         fi
     done
 

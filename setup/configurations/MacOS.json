@@ -28,9 +28,6 @@
             "name": "fastfetch"
         },
         {
-            "name": "firefox"
-        },
-        {
             "name": "fontconfig"
         },
         {
@@ -82,9 +79,6 @@
             "name": "git"
         },
         {
-            "name": "ghostty"
-        },
-        {
             "name": "jq"
         },
         {
@@ -115,10 +109,13 @@
             "name": "shellcheck"
         },
         {
-            "name": "tar"
+            "name": "agent-tars"
         },
         {
             "name": "tmux"
+        },
+        {
+            "name": "tree"
         },
         {
             "name": "tree-sitter-cli"

@@ -1,0 +1,8 @@
+### Environemnt Variables
+
+if [ -d "/opt/homebrew" ]; then
+    export HOMEBREW="/opt/homebrew"
+    export PATH="${HOMEBREW}/bin:$PATH"
+fi
+
+### Aliases
